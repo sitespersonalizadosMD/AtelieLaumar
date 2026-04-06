@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Ateliê Laumar</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+<header>
+  <h1>Ateliê Laumar</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="cart.html">Carrinho 🛒</a>
+  </nav>
+</header>
+
+<section class="banner">
+  <h2>Elegância que você sente na pele</h2>
+  <a href="#produtos" class="btn">Comprar agora</a>
+</section>
+
+<section id="produtos" class="produtos">
+  <div class="produto">
+    <img src="assets/products/lingerie.jpg">
+    <h3>Conjunto Renda Luxo</h3>
+    <p>R$ 60,00</p>
+    <button onclick="addToCart('Conjunto Renda Luxo', 60)">Comprar</button>
+    <p class="urgencia">⚠️ Alta demanda – poucas unidades!</p>
+  </div>
+</section>
+
+<footer>
+  <p>Enviamos para todo o Brasil 🇧🇷</p>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
