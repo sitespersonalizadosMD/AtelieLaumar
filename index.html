@@ -251,7 +251,12 @@ footer {
       <div class="card-body">
         <h3>Conjunto Renda Luxo</h3>
         <p class="preco">R$ 60,00</p>
-        <button onclick="addToCart('Conjunto Renda Luxo',60)">Comprar</button>
+
+        <!-- BOTÃO ATUALIZADO -->
+        <button onclick="addToCart('Conjunto Renda Luxo',60, this)">
+          Comprar
+        </button>
+
         <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
       </div>
     </div>
@@ -275,7 +280,6 @@ footer {
   </button>
 </div>
 
-<!-- BOTÃO WHATSAPP FIXO -->
 <a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
@@ -299,8 +303,8 @@ function toggleCart() {
   document.getElementById("cart").classList.toggle("ativo");
 }
 
-// ADICIONAR ITEM COM QUANTIDADE
-function addToCart(nome, preco) {
+// FUNÇÃO ATUALIZADA COM BOTÃO DINÂMICO
+function addToCart(nome, preco, botao) {
   let item = cart.find(i => i.nome === nome);
 
   if(item){
@@ -308,6 +312,15 @@ function addToCart(nome, preco) {
   } else {
     cart.push({ nome, preco, qtd: 1 });
   }
+
+  // FEEDBACK VISUAL
+  botao.innerText = "Adicionado ✓";
+  botao.style.background = "#25D366";
+
+  setTimeout(() => {
+    botao.innerText = "Comprar";
+    botao.style.background = "#d4a15a";
+  }, 1200);
 
   atualizar();
 }
@@ -337,7 +350,7 @@ function removerItem(index) {
   atualizar();
 }
 
-// FRETE INTELIGENTE (BASE RJ - 22770-190)
+// FRETE
 function calcularFrete(){
   let cep = document.getElementById("cep").value.replace("-", "");
 
@@ -373,7 +386,7 @@ function calcularFrete(){
     `Frete: R$ ${valorFrete} (${tipoFrete})`;
 }
 
-// FINALIZAR COM WHATSAPP
+// FINALIZAR
 function finalizarCompra() {
   if(cart.length === 0){
     alert("Seu carrinho está vazio!");
