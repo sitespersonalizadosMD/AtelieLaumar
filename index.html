@@ -133,6 +133,11 @@ header button {
   font-weight: 500;
 }
 
+.urgencia {
+  font-size: 13px;
+  color: #ff4d4d;
+}
+
 /* CARRINHO */
 .carrinho {
   position: fixed;
@@ -160,12 +165,27 @@ header button {
   border-radius: 6px;
 }
 
+.item button {
+  background: #ff4d4d;
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+}
+
 .total {
   margin-top: 20px;
   font-size: 18px;
 }
 
-/* BOTÃO WHATSAPP FINAL */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* BOTÃO WHATSAPP */
 .btn-whats {
   width: 100%;
   padding: 12px;
@@ -178,7 +198,7 @@ header button {
   border-radius: 6px;
 }
 
-/* BOTÃO FLUTUANTE */
+/* BOTÃO WHATSAPP FLUTUANTE */
 .whatsapp-fixo {
   position: fixed;
   bottom: 20px;
@@ -232,6 +252,7 @@ footer {
         <h3>Conjunto Renda Luxo</h3>
         <p class="preco">R$ 60,00</p>
         <button onclick="addToCart('Conjunto Renda Luxo',60)">Comprar</button>
+        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
       </div>
     </div>
 
@@ -244,8 +265,13 @@ footer {
   <div id="lista"></div>
   <p class="total" id="total"></p>
 
+  <h3>Frete</h3>
+  <input id="cep" placeholder="Digite seu CEP">
+  <button onclick="calcularFrete()">Calcular Frete</button>
+  <p id="frete"></p>
+
   <button class="btn-whats" onclick="finalizarCompra()">
-    Finalizar Compra
+    Finalizar Compra via WhatsApp
   </button>
 </div>
 
@@ -260,16 +286,20 @@ footer {
 
 <script>
 let cart = [];
+let valorFrete = 0;
+let tipoFrete = "";
 
+// SCROLL
 function scrollToProdutos() {
   document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
 }
 
+// ABRIR CARRINHO
 function toggleCart() {
   document.getElementById("cart").classList.toggle("ativo");
 }
 
-// ADICIONAR COM QUANTIDADE
+// ADICIONAR ITEM COM QUANTIDADE
 function addToCart(nome, preco) {
   let item = cart.find(i => i.nome === nome);
 
@@ -282,7 +312,7 @@ function addToCart(nome, preco) {
   atualizar();
 }
 
-// ATUALIZAR COM QUANTIDADE
+// ATUALIZAR
 function atualizar() {
   let lista = document.getElementById("lista");
   lista.innerHTML = "";
@@ -301,19 +331,56 @@ function atualizar() {
   document.getElementById("total").innerText = "Total: R$ " + total;
 }
 
+// REMOVER
 function removerItem(index) {
   cart.splice(index, 1);
   atualizar();
 }
 
-// WHATSAPP COM PRODUTOS
+// FRETE INTELIGENTE (BASE RJ - 22770-190)
+function calcularFrete(){
+  let cep = document.getElementById("cep").value.replace("-", "");
+
+  if(cep.length !== 8){
+    alert("Digite um CEP válido");
+    return;
+  }
+
+  let prefixo = cep.substring(0,2);
+
+  if(prefixo == "22"){ 
+    valorFrete = 12;
+    tipoFrete = "Entrega local RJ";
+  }
+  else if(prefixo >= "20" && prefixo <= "28"){ 
+    valorFrete = 18;
+    tipoFrete = "Sudeste";
+  }
+  else if(prefixo >= "10" && prefixo <= "19"){ 
+    valorFrete = 22;
+    tipoFrete = "São Paulo";
+  }
+  else if(prefixo >= "30" && prefixo <= "39"){ 
+    valorFrete = 25;
+    tipoFrete = "Minas Gerais";
+  }
+  else {
+    valorFrete = 35;
+    tipoFrete = "Brasil (Sedex)";
+  }
+
+  document.getElementById("frete").innerText =
+    `Frete: R$ ${valorFrete} (${tipoFrete})`;
+}
+
+// FINALIZAR COM WHATSAPP
 function finalizarCompra() {
   if(cart.length === 0){
     alert("Seu carrinho está vazio!");
     return;
   }
 
-  let mensagem = "Olá, quero finalizar:%0A%0A";
+  let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
   let total = 0;
 
   cart.forEach(item => {
@@ -321,7 +388,14 @@ function finalizarCompra() {
     total += item.preco * item.qtd;
   });
 
-  mensagem += `%0ATotal: R$ ${total}`;
+  mensagem += `%0ATotal produtos: R$ ${total}%0A`;
+
+  if(valorFrete > 0){
+    mensagem += `Frete: R$ ${valorFrete} (${tipoFrete})%0A`;
+    total += valorFrete;
+  }
+
+  mensagem += `%0ATotal final: R$ ${total}`;
 
   let url = `https://wa.me/5521975975595?text=${mensagem}`;
   window.open(url, "_blank");
