@@ -1,220 +1,344 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Ateliê Laumar</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-    margin: 0;
-    font-family: Arial;
+  font-family: 'Poppins', sans-serif;
+  background: #0f0a07;
+  color: #fff;
 }
 
+/* HEADER */
 header {
-    background: #000;
-    color: white;
-    padding: 15px;
-    text-align: center;
-    font-size: 22px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
 }
 
-.banner {
-    background: linear-gradient(to right, #000, #8b0000);
-    color: white;
-    padding: 40px;
-    text-align: center;
+header h1 {
+  color: #d4a15a;
+  font-weight: 600;
 }
 
-.container {
-    display: flex;
-    justify-content: center;
+header button {
+  background: #d4a15a;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), #0f0a07),
+              url("https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03");
+  background-size: cover;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  padding: 12px 25px;
+  background: #d4a15a;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* PRODUTOS */
+.produtos {
+  padding: 60px 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
 }
 
 .card {
-    width: 300px;
-    border: 1px solid #eee;
-    border-radius: 10px;
-    margin: 20px;
-    padding: 15px;
-    text-align: center;
+  background: #1c0f0a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
 }
 
 .card img {
-    width: 100%;
-    border-radius: 10px;
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
 }
 
 .preco {
-    color: red;
-    font-size: 22px;
+  color: #d4a15a;
+  font-weight: bold;
 }
 
-button {
-    background: #8b0000;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
+.card button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #d4a15a;
+  cursor: pointer;
 }
 
+.urgencia {
+  font-size: 13px;
+  color: #ff4d4d;
+}
+
+/* CARRINHO */
 .carrinho {
-    position: fixed;
-    right: 10px;
-    top: 10px;
-    background: black;
-    color: white;
-    padding: 10px;
-    border-radius: 10px;
-    width: 200px;
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: #111;
+  padding: 20px;
+  transition: 0.3s;
+  overflow-y: auto;
 }
 
-.frete {
-    text-align: center;
-    margin: 20px;
+.carrinho.ativo {
+  right: 0;
 }
 
-.feedback {
-    background: #f5f5f5;
-    padding: 20px;
-    text-align: center;
+.carrinho h2 {
+  margin-bottom: 20px;
 }
 
-.whatsapp {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    background: green;
-    color: white;
-    padding: 15px;
-    border-radius: 50%;
+.item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1c0f0a;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.item button {
+  background: #ff4d4d;
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
+}
+
+.total {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* FRETE */
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* BOTÃO WHATSAPP */
+.btn-whats {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  background: #25D366;
+  border: none;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  margin-top: 40px;
+  background: #000;
 }
 </style>
 </head>
 
 <body>
 
-<header>Ateliê Laumar</header>
+<header>
+  <h1>Ateliê Laumar</h1>
+  <button onclick="toggleCart()">🛒 Carrinho</button>
+</header>
 
-<div class="banner">
-    <h1>Moda íntima sofisticada</h1>
-    <p>Enviamos para todo o Brasil 🇧🇷</p>
+<section class="hero">
+  <h2>Elegância que você sente na pele</h2>
+  <button onclick="scrollToProdutos()">Comprar agora</button>
+</section>
+
+<section class="produtos" id="produtos">
+  <div class="grid">
+
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
+      <div class="card-body">
+        <h3>Conjunto Renda Luxo</h3>
+        <p class="preco">R$ 60,00</p>
+        <button onclick="addToCart('Conjunto Renda Luxo',60)">Comprar</button>
+        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CARRINHO -->
+<div class="carrinho" id="cart">
+  <h2>Seu Carrinho</h2>
+  <div id="lista"></div>
+  <p class="total" id="total"></p>
+
+  <p id="timer">⏳ 10:00</p>
+
+  <h3>Frete</h3>
+  <input id="cep" placeholder="Digite seu CEP">
+  <button onclick="frete()">Calcular</button>
+  <p id="frete"></p>
+
+  <!-- BOTÃO FINALIZAR -->
+  <button class="btn-whats" onclick="finalizarCompra()">
+    Finalizar Compra via WhatsApp
+  </button>
 </div>
 
-<div class="carrinho">
-    🛒 Itens:
-    <ul id="lista"></ul>
-    ⏳ <span id="tempo">10:00</span>
-</div>
-
-<div class="container">
-
-<div class="card">
-    <img src="produto1.jpg">
-    <h3>Conjunto Preto Renda Ajustável</h3>
-    <p class="preco">R$ 60,00</p>
-    <p>🔥 Restam apenas 5 unidades</p>
-    <button onclick="addCarrinho('Conjunto Preto Renda Ajustável', 60)">Comprar</button>
-</div>
-
-</div>
-
-<div class="frete">
-    <h3>Calcular Frete</h3>
-    <input id="cep" placeholder="Digite seu CEP">
-    <button onclick="buscarCEP()">Calcular</button>
-    <p id="resultadoFrete"></p>
-</div>
-
-<div class="feedback">
-    <h2>Feedbacks</h2>
-    <p>⭐⭐⭐⭐⭐ "Perfeito, super confortável!"</p>
-    <p>⭐⭐⭐⭐⭐ "Entrega rápida e discreta!"</p>
-</div>
-
-<div style="text-align:center; margin:20px;">
-    <button onclick="finalizarCompra()">Finalizar Compra</button>
-</div>
-
-<a class="whatsapp" href="https://wa.me/5521975975595" target="_blank">💬</a>
+<footer>
+  <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
+</footer>
 
 <script>
-let carrinho = [];
+let cart = [];
 
-function addCarrinho(nome, preco) {
-    carrinho.push({nome, preco});
-
-    let lista = document.getElementById("lista");
-    lista.innerHTML = "";
-
-    carrinho.forEach(item => {
-        let li = document.createElement("li");
-        li.innerText = item.nome;
-        lista.appendChild(li);
-    });
+// SCROLL
+function scrollToProdutos() {
+  document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
 }
 
-// BUSCAR CEP REAL
-async function buscarCEP() {
-    let cep = document.getElementById("cep").value;
-
-    if (cep.length < 8) {
-        alert("CEP inválido");
-        return;
-    }
-
-    let resposta = await fetch(`https://viacep.com.br/ws/${cep}/json/`);
-    let dados = await resposta.json();
-
-    if (dados.erro) {
-        document.getElementById("resultadoFrete").innerText = "CEP não encontrado";
-        return;
-    }
-
-    let frete = calcularFretePorEstado(dados.uf);
-
-    document.getElementById("resultadoFrete").innerText =
-        `Entrega para ${dados.localidade} - ${dados.uf}: R$ ${frete}`;
+// ABRIR CARRINHO
+function toggleCart() {
+  document.getElementById("cart").classList.toggle("ativo");
 }
 
-// FRETE POR REGIÃO (simulação inteligente)
-function calcularFretePorEstado(uf) {
-    if (["RJ","SP","MG","ES"].includes(uf)) return 15;
-    if (["PR","SC","RS"].includes(uf)) return 20;
-    if (["BA","PE","CE"].includes(uf)) return 25;
-    return 30;
+// ADICIONAR ITEM
+function addToCart(nome, preco) {
+  cart.push({ nome, preco });
+  atualizar();
+}
+
+// ATUALIZAR
+function atualizar() {
+  let lista = document.getElementById("lista");
+  lista.innerHTML = "";
+  let total = 0;
+
+  cart.forEach((item, index) => {
+    lista.innerHTML += `
+      <div class="item">
+        ${item.nome} - R$ ${item.preco}
+        <button onclick="removerItem(${index})">X</button>
+      </div>
+    `;
+    total += item.preco;
+  });
+
+  document.getElementById("total").innerText = "Total: R$ " + total;
+}
+
+// REMOVER
+function removerItem(index) {
+  cart.splice(index, 1);
+  atualizar();
 }
 
 // TIMER
-let tempo = 600;
-
+let t = 600;
 setInterval(() => {
-    let min = Math.floor(tempo / 60);
-    let seg = tempo % 60;
+  let m = Math.floor(t/60);
+  let s = t%60;
+  document.getElementById("timer").innerText = `⏳ ${m}:${s<10?'0':''}${s}`;
+  t--;
+},1000);
 
-    document.getElementById("tempo").innerText =
-        (min<10?"0":"")+min+":"+(seg<10?"0":"")+seg;
+// FRETE
+function frete(){
+  let cep = document.getElementById("cep").value;
+  let valor = cep.startsWith("0") ? 15 : 22;
+  document.getElementById("frete").innerText = "Frete: R$ " + valor;
+}
 
-    if (tempo > 0) tempo--;
-}, 1000);
-
-// FINALIZAR COMPRA COM PRODUTOS
+// WHATSAPP
 function finalizarCompra() {
-    if (carrinho.length === 0) {
-        alert("Carrinho vazio!");
-        return;
-    }
+  if(cart.length === 0){
+    alert("Seu carrinho está vazio!");
+    return;
+  }
 
-    let mensagem = "Olá, quero comprar:\n";
+  let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
+  let total = 0;
 
-    carrinho.forEach(item => {
-        mensagem += "- " + item.nome + "\n";
-    });
+  cart.forEach(item => {
+    mensagem += `- ${item.nome} | R$ ${item.preco}%0A`;
+    total += item.preco;
+  });
 
-    window.open("https://wa.me/5521975975595?text=" + encodeURIComponent(mensagem));
+  mensagem += `%0ATotal: R$ ${total}%0A`;
+
+  let cep = document.getElementById("cep").value;
+  if(cep){
+    mensagem += `CEP: ${cep}%0A`;
+  }
+
+  mensagem += "%0APode me ajudar com o pagamento?";
+
+  let numero = "5521999999999"; // ALTERA AQUI
+
+  let url = `https://wa.me/${numero}?text=${mensagem}`;
+  window.open(url, "_blank");
 }
 </script>
-
-</body>
-</html>
