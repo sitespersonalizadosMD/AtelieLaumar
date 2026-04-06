@@ -9,11 +9,16 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
 <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
   font-family: 'Poppins', sans-serif;
-  background: #1a0e08;
+  background: #0f0a07;
   color: #fff;
-  margin: 0;
 }
 
 /* HEADER */
@@ -22,7 +27,10 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: #140905;
+  background: rgba(0,0,0,0.9);
+  position: sticky;
+  top: 0;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
 }
 
 .logo {
@@ -32,66 +40,102 @@ header {
 }
 
 .logo img {
-  width: 50px;
+  width: 40px;
 }
 
-.logo h1 {
+header h1 {
   color: #d4a15a;
-  font-size: 20px;
+  font-weight: 600;
 }
 
-/* PRODUTO */
-.produto {
+header button {
+  background: #d4a15a;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
   display: flex;
-  gap: 40px;
-  padding: 60px;
+  flex-direction: column;
+  justify-content: center;
   align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), #0f0a07),
+              url("https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03");
+  background-size: cover;
+  text-align: center;
 }
 
-.produto img {
-  width: 400px;
+.hero h2 {
+  font-size: 42px;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  padding: 14px 28px;
+  background: #d4a15a;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  border-radius: 8px;
+}
+
+/* PRODUTOS */
+.produtos {
+  padding: 60px 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #1c0f0a;
   border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
 }
 
-.info {
-  max-width: 400px;
+.card:hover {
+  transform: translateY(-8px);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
 }
 
 .preco {
   color: #d4a15a;
-  font-size: 24px;
-  margin: 10px 0;
-}
-
-/* QUANTIDADE */
-.qtd {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 20px 0;
-}
-
-.qtd button {
-  background: #d4a15a;
-  border: none;
-  padding: 10px;
-  cursor: pointer;
-  font-size: 18px;
-}
-
-/* BOTÃO COMPRAR */
-.btn-comprar {
-  width: 100%;
-  padding: 15px;
-  background: #d4a15a;
-  border: none;
-  cursor: pointer;
   font-weight: bold;
-  transition: 0.3s;
 }
 
-.btn-comprar.ativo {
-  background: #25D366;
+.card button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 12px;
+  border: none;
+  background: #d4a15a;
+  cursor: pointer;
+  border-radius: 6px;
+  font-weight: 500;
+}
+
+.urgencia {
+  font-size: 13px;
+  color: #ff4d4d;
 }
 
 /* CARRINHO */
@@ -101,9 +145,10 @@ header {
   top: 0;
   width: 350px;
   height: 100%;
-  background: #0f0603;
+  background: #111;
   padding: 20px;
   transition: 0.3s;
+  overflow-y: auto;
 }
 
 .carrinho.ativo {
@@ -111,7 +156,22 @@ header {
 }
 
 .item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1c0f0a;
+  padding: 10px;
   margin-bottom: 10px;
+  border-radius: 6px;
+}
+
+.item button {
+  background: #ff4d4d;
+  border: none;
+  padding: 5px 8px;
+  cursor: pointer;
+  color: white;
+  border-radius: 4px;
 }
 
 .total {
@@ -119,16 +179,52 @@ header {
   font-size: 18px;
 }
 
-/* WHATSAPP */
-.whatsapp {
+input {
   width: 100%;
-  padding: 15px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+/* BOTÃO WHATSAPP */
+.btn-whats {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
   background: #25D366;
   border: none;
-  margin-top: 20px;
+  color: white;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* BOTÃO WHATSAPP FLUTUANTE */
+.whatsapp-fixo {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #25D366;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
   cursor: pointer;
 }
 
+.whatsapp-fixo img {
+  width: 30px;
+}
+
+/* FOOTER */
+footer {
+  text-align: center;
+  padding: 30px;
+  margin-top: 40px;
+  background: #000;
+}
 </style>
 </head>
 
@@ -136,30 +232,30 @@ header {
 
 <header>
   <div class="logo">
-    <img src="/mnt/data/2e93644d-24c7-4d18-a2cb-65ae643dacdf.png">
+    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
     <h1>Ateliê Laumar</h1>
   </div>
-  <button onclick="toggleCart()">🛒</button>
+  <button onclick="toggleCart()">🛒 Carrinho</button>
 </header>
 
-<section class="produto">
-  <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
+<section class="hero">
+  <h2>Elegância que você sente na pele</h2>
+  <button onclick="scrollToProdutos()">Comprar agora</button>
+</section>
 
-  <div class="info">
-    <h2>Conjunto Renda Luxo</h2>
-    <p class="preco">R$ 60,00</p>
+<section class="produtos" id="produtos">
+  <div class="grid">
 
-    <!-- QUANTIDADE -->
-    <div class="qtd">
-      <button onclick="menos()">-</button>
-      <span id="qtd">1</span>
-      <button onclick="mais()">+</button>
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
+      <div class="card-body">
+        <h3>Conjunto Renda Luxo</h3>
+        <p class="preco">R$ 60,00</p>
+        <button onclick="addToCart('Conjunto Renda Luxo',60)">Comprar</button>
+        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+      </div>
     </div>
 
-    <!-- BOTÃO DINÂMICO -->
-    <button id="btnComprar" class="btn-comprar" onclick="comprar()">
-      Comprar
-    </button>
   </div>
 </section>
 
@@ -169,90 +265,140 @@ header {
   <div id="lista"></div>
   <p class="total" id="total"></p>
 
-  <button class="whatsapp" onclick="finalizar()">
-    Finalizar no WhatsApp
+  <h3>Frete</h3>
+  <input id="cep" placeholder="Digite seu CEP">
+  <button onclick="calcularFrete()">Calcular Frete</button>
+  <p id="frete"></p>
+
+  <button class="btn-whats" onclick="finalizarCompra()">
+    Finalizar Compra via WhatsApp
   </button>
 </div>
 
+<!-- BOTÃO WHATSAPP FIXO -->
+<a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
+
+<footer>
+  <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
+</footer>
+
 <script>
-let quantidade = 1;
-let preco = 60;
 let cart = [];
+let valorFrete = 0;
+let tipoFrete = "";
 
-// QUANTIDADE
-function mais(){
-  quantidade++;
-  atualizarQtd();
+// SCROLL
+function scrollToProdutos() {
+  document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
 }
 
-function menos(){
-  if(quantidade > 1){
-    quantidade--;
-    atualizarQtd();
+// ABRIR CARRINHO
+function toggleCart() {
+  document.getElementById("cart").classList.toggle("ativo");
+}
+
+// ADICIONAR ITEM COM QUANTIDADE
+function addToCart(nome, preco) {
+  let item = cart.find(i => i.nome === nome);
+
+  if(item){
+    item.qtd += 1;
+  } else {
+    cart.push({ nome, preco, qtd: 1 });
   }
+
+  atualizar();
 }
 
-function atualizarQtd(){
-  document.getElementById("qtd").innerText = quantidade;
-}
-
-// COMPRAR
-function comprar(){
-  let btn = document.getElementById("btnComprar");
-
-  btn.innerText = "Adicionado ✓";
-  btn.classList.add("ativo");
-
-  setTimeout(()=>{
-    btn.innerText = "Comprar";
-    btn.classList.remove("ativo");
-  },1500);
-
-  cart.push({
-    nome: "Conjunto Renda Luxo",
-    qtd: quantidade,
-    total: quantidade * preco
-  });
-
-  atualizarCarrinho();
-}
-
-// CARRINHO
-function atualizarCarrinho(){
+// ATUALIZAR
+function atualizar() {
   let lista = document.getElementById("lista");
   lista.innerHTML = "";
   let total = 0;
 
-  cart.forEach(item=>{
+  cart.forEach((item, index) => {
     lista.innerHTML += `
       <div class="item">
-        ${item.nome} - ${item.qtd}x = R$ ${item.total}
+        ${item.nome} (${item.qtd}) - R$ ${item.preco * item.qtd}
+        <button onclick="removerItem(${index})">X</button>
       </div>
     `;
-    total += item.total;
+    total += item.preco * item.qtd;
   });
 
   document.getElementById("total").innerText = "Total: R$ " + total;
 }
 
-// ABRIR
-function toggleCart(){
-  document.getElementById("cart").classList.toggle("ativo");
+// REMOVER
+function removerItem(index) {
+  cart.splice(index, 1);
+  atualizar();
 }
 
-// FINALIZAR
-function finalizar(){
-  let mensagem = "Pedido:%0A";
+// FRETE INTELIGENTE (BASE RJ - 22770-190)
+function calcularFrete(){
+  let cep = document.getElementById("cep").value.replace("-", "");
+
+  if(cep.length !== 8){
+    alert("Digite um CEP válido");
+    return;
+  }
+
+  let prefixo = cep.substring(0,2);
+
+  if(prefixo == "22"){ 
+    valorFrete = 12;
+    tipoFrete = "Entrega local RJ";
+  }
+  else if(prefixo >= "20" && prefixo <= "28"){ 
+    valorFrete = 18;
+    tipoFrete = "Sudeste";
+  }
+  else if(prefixo >= "10" && prefixo <= "19"){ 
+    valorFrete = 22;
+    tipoFrete = "São Paulo";
+  }
+  else if(prefixo >= "30" && prefixo <= "39"){ 
+    valorFrete = 25;
+    tipoFrete = "Minas Gerais";
+  }
+  else {
+    valorFrete = 35;
+    tipoFrete = "Brasil (Sedex)";
+  }
+
+  document.getElementById("frete").innerText =
+    `Frete: R$ ${valorFrete} (${tipoFrete})`;
+}
+
+// FINALIZAR COM WHATSAPP
+function finalizarCompra() {
+  if(cart.length === 0){
+    alert("Seu carrinho está vazio!");
+    return;
+  }
+
+  let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
   let total = 0;
 
-  cart.forEach(item=>{
-    mensagem += `- ${item.nome} (${item.qtd}) R$ ${item.total}%0A`;
-    total += item.total;
+  cart.forEach(item => {
+    mensagem += `- ${item.nome} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
+    total += item.preco * item.qtd;
   });
 
-  mensagem += `%0ATotal: R$ ${total}`;
+  mensagem += `%0ATotal produtos: R$ ${total}%0A`;
 
-  window.open(`https://wa.me/5521975975595?text=${mensagem}`);
+  if(valorFrete > 0){
+    mensagem += `Frete: R$ ${valorFrete} (${tipoFrete})%0A`;
+    total += valorFrete;
+  }
+
+  mensagem += `%0ATotal final: R$ ${total}`;
+
+  let url = `https://wa.me/5521975975595?text=${mensagem}`;
+  window.open(url, "_blank");
 }
 </script>
 
