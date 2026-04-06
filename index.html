@@ -6,185 +6,262 @@
 
 <title>Ateliê Laumar</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+
 <style>
-body {
+* {
   margin: 0;
-  font-family: Arial;
-  background: #1c0f0a;
-  color: white;
+  padding: 0;
+  box-sizing: border-box;
 }
 
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0f0a07;
+  color: #fff;
+}
+
+/* HEADER */
 header {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background: black;
+  align-items: center;
+  padding: 20px 40px;
+  background: rgba(0,0,0,0.8);
+  position: sticky;
+  top: 0;
 }
 
-h1 {
+header h1 {
   color: #d4a15a;
+  font-weight: 600;
 }
 
-.banner {
-  text-align: center;
-  padding: 80px 20px;
-}
-
-.banner h2 {
-  font-size: 28px;
-}
-
-.btn {
+header button {
   background: #d4a15a;
-  color: black;
-  padding: 10px 20px;
-  text-decoration: none;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+/* HERO */
+.hero {
+  height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), #0f0a07),
+              url("https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03");
+  background-size: cover;
+  text-align: center;
+}
+
+.hero h2 {
+  font-size: 40px;
+  margin-bottom: 20px;
+}
+
+.hero button {
+  padding: 12px 25px;
+  background: #d4a15a;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+/* PRODUTOS */
+.produtos {
+  padding: 60px 40px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: #1c0f0a;
+  border-radius: 12px;
+  overflow: hidden;
+  transition: 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card h3 {
+  margin-bottom: 10px;
+}
+
+.preco {
+  color: #d4a15a;
+  font-weight: bold;
+}
+
+.card button {
+  margin-top: 15px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  background: #d4a15a;
   cursor: pointer;
 }
 
-.produtos {
-  display: flex;
-  justify-content: center;
-  margin-top: 30px;
-}
-
-.produto {
-  background: black;
-  padding: 20px;
-  border-radius: 10px;
-  text-align: center;
-}
-
-.produto img {
-  width: 220px;
-  border-radius: 10px;
-}
-
 .urgencia {
-  color: red;
-  font-size: 14px;
+  font-size: 13px;
+  color: #ff4d4d;
 }
 
+/* CARRINHO */
 .carrinho {
+  position: fixed;
+  right: -400px;
+  top: 0;
+  width: 350px;
+  height: 100%;
+  background: #111;
   padding: 20px;
+  transition: 0.3s;
+  overflow-y: auto;
 }
 
+.carrinho.ativo {
+  right: 0;
+}
+
+.carrinho h2 {
+  margin-bottom: 20px;
+}
+
+.item {
+  margin-bottom: 10px;
+}
+
+.total {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* FRETE */
 input {
+  width: 100%;
   padding: 10px;
   margin-top: 10px;
 }
 
+/* FOOTER */
 footer {
   text-align: center;
-  margin-top: 50px;
-  padding: 20px;
+  padding: 30px;
+  margin-top: 40px;
+  background: #000;
 }
 </style>
-
 </head>
+
 <body>
 
 <header>
   <h1>Ateliê Laumar</h1>
-  <button onclick="mostrarCarrinho()">Carrinho 🛒</button>
+  <button onclick="toggleCart()">🛒 Carrinho</button>
 </header>
 
-<section class="banner">
+<section class="hero">
   <h2>Elegância que você sente na pele</h2>
-  <button class="btn" onclick="scrollToProdutos()">Comprar agora</button>
+  <button onclick="scrollToProdutos()">Comprar agora</button>
 </section>
 
-<section id="produtos" class="produtos">
-  <div class="produto">
-    <img src="https://i.imgur.com/2DhmtJ4.png">
-    <h3>Conjunto Renda Luxo</h3>
-    <p>R$ 60,00</p>
-    <button class="btn" onclick="addToCart('Conjunto Renda Luxo', 60)">Comprar</button>
-    <p class="urgencia">⚠️ Restam apenas 5 unidades!</p>
+<section class="produtos" id="produtos">
+  <div class="grid">
+
+    <div class="card">
+      <img src="https://i.imgur.com/2DhmtJ4.png">
+      <div class="card-body">
+        <h3>Conjunto Renda Luxo</h3>
+        <p class="preco">R$ 60,00</p>
+        <button onclick="addToCart('Conjunto Renda Luxo',60)">Comprar</button>
+        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+      </div>
+    </div>
+
   </div>
 </section>
 
-<section class="carrinho" id="carrinho" style="display:none;">
+<!-- CARRINHO -->
+<div class="carrinho" id="cart">
   <h2>Seu Carrinho</h2>
   <div id="lista"></div>
-  <h3 id="total"></h3>
+  <p class="total" id="total"></p>
 
-  <p id="timer">⏳ Seu carrinho expira em 10:00</p>
+  <p id="timer">⏳ 10:00</p>
 
-  <h3>Calcular Frete</h3>
-  <input type="text" id="cep" placeholder="Digite seu CEP">
-  <button onclick="calcularFrete()">Calcular</button>
+  <h3>Frete</h3>
+  <input id="cep" placeholder="Digite seu CEP">
+  <button onclick="frete()">Calcular</button>
   <p id="frete"></p>
-</section>
-
-<section style="text-align:center;">
-  <h2>Avaliações</h2>
-  <p>⭐⭐⭐⭐⭐ "Perfeita, amei!" - Juliana</p>
-  <p>⭐⭐⭐⭐⭐ "Entrega rápida e discreta!" - Carla</p>
-</section>
+</div>
 
 <footer>
-  <p>Enviamos para todo o Brasil 🇧🇷</p>
+  <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
 </footer>
 
 <script>
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let cart = [];
 
 function scrollToProdutos() {
   document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
 }
 
+function toggleCart() {
+  document.getElementById("cart").classList.toggle("ativo");
+}
+
 function addToCart(nome, preco) {
   cart.push({ nome, preco });
-  localStorage.setItem("cart", JSON.stringify(cart));
-  alert("Produto adicionado!");
+  atualizar();
 }
 
-function mostrarCarrinho() {
-  document.getElementById("carrinho").style.display = "block";
-  atualizarCarrinho();
-}
-
-function atualizarCarrinho() {
+function atualizar() {
   let lista = document.getElementById("lista");
   lista.innerHTML = "";
   let total = 0;
 
-  cart.forEach(item => {
-    lista.innerHTML += `<p>${item.nome} - R$ ${item.preco}</p>`;
-    total += item.preco;
+  cart.forEach(i => {
+    lista.innerHTML += `<p class="item">${i.nome} - R$ ${i.preco}</p>`;
+    total += i.preco;
   });
 
   document.getElementById("total").innerText = "Total: R$ " + total;
 }
 
 // TIMER
-let time = 600;
+let t = 600;
 setInterval(() => {
-  let min = Math.floor(time / 60);
-  let sec = time % 60;
-
-  document.getElementById("timer").innerText =
-    `⏳ Seu carrinho expira em ${min}:${sec < 10 ? '0' : ''}${sec}`;
-
-  time--;
-
-  if (time < 0) {
-    localStorage.removeItem("cart");
-    alert("Carrinho expirado!");
-    location.reload();
-  }
-}, 1000);
+  let m = Math.floor(t/60);
+  let s = t%60;
+  document.getElementById("timer").innerText = `⏳ ${m}:${s<10?'0':''}${s}`;
+  t--;
+},1000);
 
 // FRETE
-function calcularFrete() {
+function frete(){
   let cep = document.getElementById("cep").value;
-
-  if (cep.startsWith("0") || cep.startsWith("1")) {
-    document.getElementById("frete").innerText = "Frete: R$ 15 (Sudeste)";
-  } else {
-    document.getElementById("frete").innerText = "Frete: R$ 22 (Outros estados)";
-  }
+  document.getElementById("frete").innerText =
+    cep.startsWith("0") ? "Frete: R$15" : "Frete: R$22";
 }
 </script>
 
