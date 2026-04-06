@@ -1,39 +1,192 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-  <meta charset="UTF-8">
-  <title>Ateliê Laumar</title>
-  <link rel="stylesheet" href="css/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Ateliê Laumar</title>
+
+<style>
+body {
+  margin: 0;
+  font-family: Arial;
+  background: #1c0f0a;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background: black;
+}
+
+h1 {
+  color: #d4a15a;
+}
+
+.banner {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.banner h2 {
+  font-size: 28px;
+}
+
+.btn {
+  background: #d4a15a;
+  color: black;
+  padding: 10px 20px;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.produtos {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.produto {
+  background: black;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: center;
+}
+
+.produto img {
+  width: 220px;
+  border-radius: 10px;
+}
+
+.urgencia {
+  color: red;
+  font-size: 14px;
+}
+
+.carrinho {
+  padding: 20px;
+}
+
+input {
+  padding: 10px;
+  margin-top: 10px;
+}
+
+footer {
+  text-align: center;
+  margin-top: 50px;
+  padding: 20px;
+}
+</style>
+
 </head>
 <body>
 
 <header>
   <h1>Ateliê Laumar</h1>
-  <nav>
-    <a href="index.html">Home</a>
-    <a href="cart.html">Carrinho 🛒</a>
-  </nav>
+  <button onclick="mostrarCarrinho()">Carrinho 🛒</button>
 </header>
 
 <section class="banner">
   <h2>Elegância que você sente na pele</h2>
-  <a href="#produtos" class="btn">Comprar agora</a>
+  <button class="btn" onclick="scrollToProdutos()">Comprar agora</button>
 </section>
 
 <section id="produtos" class="produtos">
   <div class="produto">
-    <img src="assets/products/lingerie.jpg">
+    <img src="https://i.imgur.com/2DhmtJ4.png">
     <h3>Conjunto Renda Luxo</h3>
     <p>R$ 60,00</p>
-    <button onclick="addToCart('Conjunto Renda Luxo', 60)">Comprar</button>
-    <p class="urgencia">⚠️ Alta demanda – poucas unidades!</p>
+    <button class="btn" onclick="addToCart('Conjunto Renda Luxo', 60)">Comprar</button>
+    <p class="urgencia">⚠️ Restam apenas 5 unidades!</p>
   </div>
+</section>
+
+<section class="carrinho" id="carrinho" style="display:none;">
+  <h2>Seu Carrinho</h2>
+  <div id="lista"></div>
+  <h3 id="total"></h3>
+
+  <p id="timer">⏳ Seu carrinho expira em 10:00</p>
+
+  <h3>Calcular Frete</h3>
+  <input type="text" id="cep" placeholder="Digite seu CEP">
+  <button onclick="calcularFrete()">Calcular</button>
+  <p id="frete"></p>
+</section>
+
+<section style="text-align:center;">
+  <h2>Avaliações</h2>
+  <p>⭐⭐⭐⭐⭐ "Perfeita, amei!" - Juliana</p>
+  <p>⭐⭐⭐⭐⭐ "Entrega rápida e discreta!" - Carla</p>
 </section>
 
 <footer>
   <p>Enviamos para todo o Brasil 🇧🇷</p>
 </footer>
 
-<script src="js/app.js"></script>
+<script>
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+
+function scrollToProdutos() {
+  document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
+}
+
+function addToCart(nome, preco) {
+  cart.push({ nome, preco });
+  localStorage.setItem("cart", JSON.stringify(cart));
+  alert("Produto adicionado!");
+}
+
+function mostrarCarrinho() {
+  document.getElementById("carrinho").style.display = "block";
+  atualizarCarrinho();
+}
+
+function atualizarCarrinho() {
+  let lista = document.getElementById("lista");
+  lista.innerHTML = "";
+  let total = 0;
+
+  cart.forEach(item => {
+    lista.innerHTML += `<p>${item.nome} - R$ ${item.preco}</p>`;
+    total += item.preco;
+  });
+
+  document.getElementById("total").innerText = "Total: R$ " + total;
+}
+
+// TIMER
+let time = 600;
+setInterval(() => {
+  let min = Math.floor(time / 60);
+  let sec = time % 60;
+
+  document.getElementById("timer").innerText =
+    `⏳ Seu carrinho expira em ${min}:${sec < 10 ? '0' : ''}${sec}`;
+
+  time--;
+
+  if (time < 0) {
+    localStorage.removeItem("cart");
+    alert("Carrinho expirado!");
+    location.reload();
+  }
+}, 1000);
+
+// FRETE
+function calcularFrete() {
+  let cep = document.getElementById("cep").value;
+
+  if (cep.startsWith("0") || cep.startsWith("1")) {
+    document.getElementById("frete").innerText = "Frete: R$ 15 (Sudeste)";
+  } else {
+    document.getElementById("frete").innerText = "Frete: R$ 22 (Outros estados)";
+  }
+}
+</script>
+
 </body>
 </html>
