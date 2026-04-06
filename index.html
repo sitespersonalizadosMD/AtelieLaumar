@@ -36,16 +36,11 @@ header {
 .logo {
   display: flex;
   align-items: center;
-  gap: 10px;
 }
 
+/* LOGO MAIOR */
 .logo img {
-  width: 40px;
-}
-
-header h1 {
-  color: #E9B44C;
-  font-weight: 600;
+  width: 80px;
 }
 
 header button {
@@ -179,6 +174,13 @@ header button {
   font-size: 18px;
 }
 
+/* TIMER */
+.timer {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #E9B44C;
+}
+
 input {
   width: 100%;
   padding: 10px;
@@ -198,7 +200,7 @@ input {
   border-radius: 6px;
 }
 
-/* BOTÃO WHATSAPP FLUTUANTE */
+/* BOTÃO WHATSAPP FIXO */
 .whatsapp-fixo {
   position: fixed;
   bottom: 20px;
@@ -210,15 +212,12 @@ input {
   display: flex;
   justify-content: center;
   align-items: center;
-  box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-  cursor: pointer;
 }
 
 .whatsapp-fixo img {
   width: 30px;
 }
 
-/* FOOTER */
 footer {
   text-align: center;
   padding: 30px;
@@ -232,8 +231,7 @@ footer {
 
 <header>
   <div class="logo">
-    <img src="WhatsApp Image 2026-04-01 at 15.59.00.jpeg">
-    <h1>Ateliê Laumar</h1>
+    <img src="https://cdn-icons-png.flaticon.com/512/847/847969.png">
   </div>
   <button onclick="toggleCart()">🛒 Carrinho</button>
 </header>
@@ -268,6 +266,9 @@ footer {
   <div id="lista"></div>
   <p class="total" id="total"></p>
 
+  <!-- TIMER -->
+  <p class="timer" id="timer"></p>
+
   <h3>Frete</h3>
   <input id="cep" placeholder="Digite seu CEP">
   <button onclick="calcularFrete()">Calcular Frete</button>
@@ -290,15 +291,43 @@ footer {
 let cart = [];
 let valorFrete = 0;
 let tipoFrete = "";
+let tempo = 600;
+let timerInterval;
 
+// SCROLL
 function scrollToProdutos() {
   document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
 }
 
+// ABRIR CARRINHO
 function toggleCart() {
   document.getElementById("cart").classList.toggle("ativo");
 }
 
+// TIMER
+function iniciarTimer(){
+  clearInterval(timerInterval);
+  tempo = 600;
+
+  timerInterval = setInterval(() => {
+    let m = Math.floor(tempo / 60);
+    let s = tempo % 60;
+
+    document.getElementById("timer").innerText =
+      `⏳ Reserva expira em ${m}:${s < 10 ? '0' : ''}${s}`;
+
+    tempo--;
+
+    if(tempo < 0){
+      clearInterval(timerInterval);
+      cart = [];
+      atualizar();
+      document.getElementById("timer").innerText = "Tempo expirado ⛔";
+    }
+  }, 1000);
+}
+
+// ADICIONAR ITEM
 function addToCart(nome, preco, botao) {
   let item = cart.find(i => i.nome === nome);
 
@@ -316,9 +345,11 @@ function addToCart(nome, preco, botao) {
     botao.style.background = "#E9B44C";
   }, 1200);
 
+  iniciarTimer();
   atualizar();
 }
 
+// ATUALIZAR
 function atualizar() {
   let lista = document.getElementById("lista");
   lista.innerHTML = "";
@@ -337,6 +368,7 @@ function atualizar() {
   document.getElementById("total").innerText = "Total: R$ " + total;
 }
 
+// RESTO IGUAL...
 function removerItem(index) {
   cart.splice(index, 1);
   atualizar();
@@ -344,44 +376,22 @@ function removerItem(index) {
 
 function calcularFrete(){
   let cep = document.getElementById("cep").value.replace("-", "");
-
-  if(cep.length !== 8){
-    alert("Digite um CEP válido");
-    return;
-  }
+  if(cep.length !== 8){ alert("Digite um CEP válido"); return; }
 
   let prefixo = cep.substring(0,2);
 
-  if(prefixo == "22"){ 
-    valorFrete = 12;
-    tipoFrete = "Entrega local RJ";
-  }
-  else if(prefixo >= "20" && prefixo <= "28"){ 
-    valorFrete = 18;
-    tipoFrete = "Sudeste";
-  }
-  else if(prefixo >= "10" && prefixo <= "19"){ 
-    valorFrete = 22;
-    tipoFrete = "São Paulo";
-  }
-  else if(prefixo >= "30" && prefixo <= "39"){ 
-    valorFrete = 25;
-    tipoFrete = "Minas Gerais";
-  }
-  else {
-    valorFrete = 35;
-    tipoFrete = "Brasil (Sedex)";
-  }
+  if(prefixo == "22"){ valorFrete = 12; tipoFrete = "Entrega local RJ"; }
+  else if(prefixo >= "20" && prefixo <= "28"){ valorFrete = 18; tipoFrete = "Sudeste"; }
+  else if(prefixo >= "10" && prefixo <= "19"){ valorFrete = 22; tipoFrete = "São Paulo"; }
+  else if(prefixo >= "30" && prefixo <= "39"){ valorFrete = 25; tipoFrete = "Minas Gerais"; }
+  else { valorFrete = 35; tipoFrete = "Brasil (Sedex)"; }
 
   document.getElementById("frete").innerText =
     `Frete: R$ ${valorFrete} (${tipoFrete})`;
 }
 
 function finalizarCompra() {
-  if(cart.length === 0){
-    alert("Seu carrinho está vazio!");
-    return;
-  }
+  if(cart.length === 0){ alert("Seu carrinho está vazio!"); return; }
 
   let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
   let total = 0;
