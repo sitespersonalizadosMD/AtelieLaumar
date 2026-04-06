@@ -17,7 +17,7 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background: #0f0a07;
+  background: #3D1C0D;
   color: #fff;
 }
 
@@ -27,7 +27,7 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 20px 40px;
-  background: rgba(0,0,0,0.9);
+  background: #2b1409;
   position: sticky;
   top: 0;
   box-shadow: 0 2px 10px rgba(0,0,0,0.5);
@@ -44,12 +44,12 @@ header {
 }
 
 header h1 {
-  color: #d4a15a;
+  color: #E9B44C;
   font-weight: 600;
 }
 
 header button {
-  background: #d4a15a;
+  background: #E9B44C;
   border: none;
   padding: 10px 15px;
   cursor: pointer;
@@ -64,7 +64,7 @@ header button {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  background: linear-gradient(to bottom, rgba(0,0,0,0.6), #0f0a07),
+  background: linear-gradient(to bottom, rgba(0,0,0,0.6), #3D1C0D),
               url("https://images.unsplash.com/photo-1585487000160-6ebcfceb0d03");
   background-size: cover;
   text-align: center;
@@ -77,7 +77,7 @@ header button {
 
 .hero button {
   padding: 14px 28px;
-  background: #d4a15a;
+  background: #E9B44C;
   border: none;
   cursor: pointer;
   font-size: 16px;
@@ -96,7 +96,7 @@ header button {
 }
 
 .card {
-  background: #1c0f0a;
+  background: #2b1409;
   border-radius: 12px;
   overflow: hidden;
   transition: 0.3s;
@@ -118,7 +118,7 @@ header button {
 }
 
 .preco {
-  color: #d4a15a;
+  color: #E9B44C;
   font-weight: bold;
 }
 
@@ -127,7 +127,7 @@ header button {
   width: 100%;
   padding: 12px;
   border: none;
-  background: #d4a15a;
+  background: #E9B44C;
   cursor: pointer;
   border-radius: 6px;
   font-weight: 500;
@@ -145,7 +145,7 @@ header button {
   top: 0;
   width: 350px;
   height: 100%;
-  background: #111;
+  background: #2b1409;
   padding: 20px;
   transition: 0.3s;
   overflow-y: auto;
@@ -159,7 +159,7 @@ header button {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #1c0f0a;
+  background: #3D1C0D;
   padding: 10px;
   margin-bottom: 10px;
   border-radius: 6px;
@@ -223,7 +223,7 @@ footer {
   text-align: center;
   padding: 30px;
   margin-top: 40px;
-  background: #000;
+  background: #2b1409;
 }
 </style>
 </head>
@@ -252,7 +252,6 @@ footer {
         <h3>Conjunto Renda Luxo</h3>
         <p class="preco">R$ 60,00</p>
 
-        <!-- BOTÃO ATUALIZADO -->
         <button onclick="addToCart('Conjunto Renda Luxo',60, this)">
           Comprar
         </button>
@@ -264,7 +263,6 @@ footer {
   </div>
 </section>
 
-<!-- CARRINHO -->
 <div class="carrinho" id="cart">
   <h2>Seu Carrinho</h2>
   <div id="lista"></div>
@@ -293,17 +291,14 @@ let cart = [];
 let valorFrete = 0;
 let tipoFrete = "";
 
-// SCROLL
 function scrollToProdutos() {
   document.getElementById("produtos").scrollIntoView({ behavior: "smooth" });
 }
 
-// ABRIR CARRINHO
 function toggleCart() {
   document.getElementById("cart").classList.toggle("ativo");
 }
 
-// FUNÇÃO ATUALIZADA COM BOTÃO DINÂMICO
 function addToCart(nome, preco, botao) {
   let item = cart.find(i => i.nome === nome);
 
@@ -313,19 +308,17 @@ function addToCart(nome, preco, botao) {
     cart.push({ nome, preco, qtd: 1 });
   }
 
-  // FEEDBACK VISUAL
   botao.innerText = "Adicionado ✓";
   botao.style.background = "#25D366";
 
   setTimeout(() => {
     botao.innerText = "Comprar";
-    botao.style.background = "#d4a15a";
+    botao.style.background = "#E9B44C";
   }, 1200);
 
   atualizar();
 }
 
-// ATUALIZAR
 function atualizar() {
   let lista = document.getElementById("lista");
   lista.innerHTML = "";
@@ -344,13 +337,11 @@ function atualizar() {
   document.getElementById("total").innerText = "Total: R$ " + total;
 }
 
-// REMOVER
 function removerItem(index) {
   cart.splice(index, 1);
   atualizar();
 }
 
-// FRETE
 function calcularFrete(){
   let cep = document.getElementById("cep").value.replace("-", "");
 
@@ -386,7 +377,6 @@ function calcularFrete(){
     `Frete: R$ ${valorFrete} (${tipoFrete})`;
 }
 
-// FINALIZAR
 function finalizarCompra() {
   if(cart.length === 0){
     alert("Seu carrinho está vazio!");
