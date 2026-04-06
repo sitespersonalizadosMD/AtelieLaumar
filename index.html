@@ -194,6 +194,23 @@ footer {
   margin-top: 40px;
   background: #2b1409;
 }
+  .frete-box {
+  text-align: center;
+  margin-top: 20px;
+}
+
+.calcular-frete-btn {
+  width: 100%;
+  padding: 14px;
+  margin-top: 10px;
+  background: #E9B44C;
+  border: none;
+  color: #3D1C0D;
+  font-weight: bold;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+}
 </style>
 </head>
 
@@ -231,10 +248,17 @@ footer {
 
   <p class="timer" id="timer"></p>
 
+  <div class="frete-box">
   <h3>Frete</h3>
+
   <input id="cep" placeholder="Digite seu CEP">
-  <button onclick="calcularFrete()">Calcular Frete</button>
+
+  <button class="calcular-frete-btn" onclick="calcularFrete()">
+    Calcular Frete
+  </button>
+
   <p id="frete"></p>
+</div>
 
   <button class="btn-whats" onclick="finalizarCompra()">
     Finalizar Compra via WhatsApp
