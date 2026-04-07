@@ -1,409 +1,408 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Ateliê Laumar</title>
+  <title>Ateliê Laumar</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
-<style>
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background: #3D1C0D;
-  color: #fff;
-}
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #3D1C0D;
+      color: #fff;
+    }
 
-/* HEADER */
-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 20px 40px;
-  background: #2b1409;
-  position: sticky;
-  top: 0;
-  box-shadow: 0 2px 10px rgba(0,0,0,0.5);
-}
+    /* HEADER */
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 20px 40px;
+      background: #2b1409;
+      position: sticky;
+      top: 0;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+    }
 
-/* HERO */
-.hero {
-  height: 80vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: #3D1C0D url("Logo.PNG") no-repeat center;
-  background-size: contain;
-}
+    /* HERO */
+    .hero {
+      height: 80vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #3D1C0D url("Logo.PNG") no-repeat center;
+      background-size: contain;
+    }
 
-/* PRODUTOS */
-.produtos {
-  padding: 60px 40px;
-}
+    /* PRODUTOS */
+    .produtos {
+      padding: 60px 40px;
+    }
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 30px;
-}
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+    }
 
-.card {
-  background: #2b1409;
-  border-radius: 12px;
-  overflow: hidden;
-  transition: 0.3s;
-  box-shadow: 0 5px 20px rgba(0,0,0,0.5);
-}
+    .card {
+      background: #2b1409;
+      border-radius: 12px;
+      overflow: hidden;
+      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
 
-.card:hover {
-  transform: translateY(-8px);
-}
+    .card:hover {
+      transform: translateY(-8px);
+    }
 
-.card img {
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-}
+    .card img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
 
-.card-body {
-  padding: 20px;
-}
+    .card-body {
+      padding: 20px;
+    }
 
-.preco {
-  color: #E9B44C;
-  font-weight: bold;
-}
+    .preco {
+      color: #E9B44C;
+      font-weight: bold;
+    }
 
-.card button {
-  margin-top: 15px;
-  width: 100%;
-  padding: 12px;
-  border: none;
-  background: #E9B44C;
-  cursor: pointer;
-  border-radius: 8px;
-  font-weight: 600;
-  color: #3D1C0D; /* 👈 igual ao frete */
-  font-size: 14px; /* 👈 igual ao frete */
-}
+    .card button {
+      margin-top: 15px;
+      width: 100%;
+      padding: 12px;
+      border: none;
+      background: #E9B44C;
+      cursor: pointer;
+      border-radius: 8px;
+      font-weight: 600;
+      color: #3D1C0D;
+      font-size: 14px;
+    }
 
-.urgencia {
-  font-size: 13px;
-  color: #ff4d4d;
-}
+    .urgencia {
+      font-size: 13px;
+      color: #ff4d4d;
+    }
 
-/* 🔥 CARRINHO NOVO (EMBAIXO E BONITO) */
-.carrinho {
-  position: relative;
-  width: 100%;
-  height: auto;
-  margin-top: 40px;
-  background: #2b1409;
-  padding: 25px;
-  border-radius: 15px;
-  box-shadow: 0 5px 25px rgba(0,0,0,0.5);
-}
+    /* CARRINHO */
+    .carrinho {
+      width: 100%;
+      margin-top: 40px;
+      background: #2b1409;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+    }
 
-/* MELHOR VISUAL */
-.carrinho h2 {
-  text-align: center;
-  margin-bottom: 15px;
-  color: #E9B44C;
-}
+    .carrinho h2 {
+      text-align: center;
+      margin-bottom: 15px;
+      color: #E9B44C;
+    }
 
-.item {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: #3D1C0D;
-  padding: 12px;
-  margin-bottom: 10px;
-  border-radius: 10px;
-  font-size: 14px;
-}
+    .item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #3D1C0D;
+      padding: 12px;
+      margin-bottom: 10px;
+      border-radius: 10px;
+      font-size: 14px;
+    }
 
-.item button {
-  background: #ff4d4d;
-  border: none;
-  padding: 6px 10px;
-  cursor: pointer;
-  color: white;
-  border-radius: 6px;
-}
+    .item button {
+      background: #ff4d4d;
+      border: none;
+      padding: 6px 10px;
+      cursor: pointer;
+      color: white;
+      border-radius: 6px;
+    }
 
-.total {
-  margin-top: 15px;
-  font-size: 18px;
-  text-align: center;
-  font-weight: bold;
-  color: #E9B44C;
-}
+    .total {
+      margin-top: 15px;
+      font-size: 18px;
+      text-align: center;
+      font-weight: bold;
+      color: #E9B44C;
+    }
 
-/* TIMER */
-.timer {
-  margin-top: 10px;
-  font-size: 14px;
-  color: #E9B44C;
-}
+    .timer {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #E9B44C;
+    }
 
-input {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-}
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
 
-/* BOTÃO WHATS */
-.btn-whats {
-  width: 100%;
-  padding: 14px;
-  margin-top: 15px;
-  background: #25D366;
-  border: none;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 10px;
-}
+    .btn-whats {
+      width: 100%;
+      padding: 14px;
+      margin-top: 15px;
+      background: #25D366;
+      border: none;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+    }
 
-/* BOTÃO WHATS FIXO */
-.whatsapp-fixo {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: #25D366;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
+    .whatsapp-fixo {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background: #25D366;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
 
-.whatsapp-fixo img {
-  width: 30px;
-}
+    .whatsapp-fixo img {
+      width: 30px;
+    }
 
-footer {
-  text-align: center;
-  padding: 30px;
-  margin-top: 40px;
-  background: #2b1409;
-}
-  .frete-box {
-  text-align: center;
-  margin-top: 20px;
-}
+    footer {
+      text-align: center;
+      padding: 30px;
+      margin-top: 40px;
+      background: #2b1409;
+    }
 
-.calcular-frete-btn {
-  width: 100%;
-  padding: 14px;
-  margin-top: 10px;
-  background: #E9B44C;
-  border: none;
-  color: #3D1C0D;
-  font-weight: bold;
-  cursor: pointer;
-  border-radius: 10px;
-  font-size: 16px;
-}
-</style>
+    .frete-box {
+      text-align: center;
+      margin-top: 20px;
+    }
+
+    .calcular-frete-btn {
+      width: 100%;
+      padding: 14px;
+      margin-top: 10px;
+      background: #E9B44C;
+      border: none;
+      color: #3D1C0D;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 10px;
+      font-size: 16px;
+    }
+  </style>
 </head>
 
 <body>
 
-<header>
-</header>
+  <header></header>
 
-<section class="hero"></section>
+  <section class="hero"></section>
 
-<section class="produtos" id="produtos">
-  <div class="grid">
+  <section class="produtos" id="produtos">
+    <div class="grid">
 
-    <div class="card">
-      <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
-      <div class="card-body">
-        <h3>Conjunto Preto Renda Ajustável</h3>
-        <p class="preco">R$ 60,00</p>
+      <!-- PRODUTO -->
+      <div class="card">
+        <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
+        <div class="card-body">
+          <h3>Conjunto Preto Renda Ajustável</h3>
+          <p class="preco">R$ 60,00</p>
 
-        <button onclick="addToCart('Conjunto Renda Luxo',60,00, this)">
-          Comprar
-        </button>
-        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-        
-        <div class="card">
-      <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
-      <div class="card-body">
-        <h3>Conjunto Rendado Vermelho </h3>
-        <p class="preco">R$ 55,00</p>
+          <button onclick="addToCart('Conjunto Renda Luxo', 60, this)">
+            Comprar
+          </button>
 
-        <button onclick="addToCart('Conjunto Renda Luxo',60, this)">
-          Comprar
-        </button>
-
-        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
       </div>
+
+    </div>
+  </section>
+
+  <!-- CARRINHO -->
+  <div class="carrinho" id="cart">
+    <h2>Seu Carrinho</h2>
+
+    <div id="lista"></div>
+    <p class="total" id="total"></p>
+    <p class="timer" id="timer"></p>
+
+    <div class="frete-box">
+      <h3>Frete</h3>
+
+      <input id="cep" placeholder="Digite seu CEP">
+
+      <button class="calcular-frete-btn" onclick="calcularFrete()">
+        Calcular Frete
+      </button>
+
+      <p id="frete"></p>
     </div>
 
+    <button class="btn-whats" onclick="finalizarCompra()">
+      Finalizar Compra via WhatsApp
+    </button>
   </div>
-</section>
 
-<div class="carrinho" id="cart">
-  <h2>Seu Carrinho</h2>
-  <div id="lista"></div>
-  <p class="total" id="total"></p>
+  <!-- WHATSAPP -->
+  <a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+  </a>
 
-  <p class="timer" id="timer"></p>
+  <footer>
+    <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
+  </footer>
 
-  <div class="frete-box">
-  <h3>Frete</h3>
+  <script>
+    let cart = [];
+    let valorFrete = 0;
+    let tipoFrete = "";
+    let tempo = 600;
+    let timerInterval;
 
-  <input id="cep" placeholder="Digite seu CEP">
-
-  <button class="calcular-frete-btn" onclick="calcularFrete()">
-    Calcular Frete
-  </button>
-
-  <p id="frete"></p>
-</div>
-
-  <button class="btn-whats" onclick="finalizarCompra()">
-    Finalizar Compra via WhatsApp
-  </button>
-</div>
-
-<a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
-
-<footer>
-  <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
-</footer>
-
-<script>
-// (SEU JS NÃO FOI ALTERADO)
-let cart = [];
-let valorFrete = 0;
-let tipoFrete = "";
-let tempo = 600;
-let timerInterval;
-
-function toggleCart() {
-  document.getElementById("cart").classList.toggle("ativo");
-}
-
-function iniciarTimer(){
-  clearInterval(timerInterval);
-  tempo = 600;
-
-  timerInterval = setInterval(() => {
-    let m = Math.floor(tempo / 60);
-    let s = tempo % 60;
-
-    document.getElementById("timer").innerText =
-      `⏳ Reserva expira em ${m}:${s < 10 ? '0' : ''}${s}`;
-
-    tempo--;
-
-    if(tempo < 0){
+    function iniciarTimer() {
       clearInterval(timerInterval);
-      cart = [];
-      atualizar();
-      document.getElementById("timer").innerText = "Tempo expirado ⛔";
+      tempo = 600;
+
+      timerInterval = setInterval(() => {
+        let m = Math.floor(tempo / 60);
+        let s = tempo % 60;
+
+        document.getElementById("timer").innerText =
+          `⏳ Reserva expira em ${m}:${s < 10 ? '0' : ''}${s}`;
+
+        tempo--;
+
+        if (tempo < 0) {
+          clearInterval(timerInterval);
+          cart = [];
+          atualizar();
+          document.getElementById("timer").innerText = "Tempo expirado ⛔";
+        }
+      }, 1000);
     }
-  }, 1000);
-}
 
-function addToCart(nome, preco, botao) {
-  let item = cart.find(i => i.nome === nome);
+    function addToCart(nome, preco, botao) {
+      let item = cart.find(i => i.nome === nome);
 
-  if(item){
-    item.qtd += 1;
-  } else {
-    cart.push({ nome, preco, qtd: 1 });
-  }
+      if (item) {
+        item.qtd += 1;
+      } else {
+        cart.push({ nome, preco, qtd: 1 });
+      }
 
-  botao.innerText = "Adicionado ✓";
-  botao.style.background = "#25D366";
+      botao.innerText = "Adicionado ✓";
+      botao.style.background = "#25D366";
 
-  setTimeout(() => {
-    botao.innerText = "Comprar";
-    botao.style.background = "#E9B44C";
-  }, 1200);
+      setTimeout(() => {
+        botao.innerText = "Comprar";
+        botao.style.background = "#E9B44C";
+      }, 1200);
 
-  iniciarTimer();
-  atualizar();
-}
+      iniciarTimer();
+      atualizar();
+    }
 
-function atualizar() {
-  let lista = document.getElementById("lista");
-  lista.innerHTML = "";
-  let total = 0;
+    function atualizar() {
+      let lista = document.getElementById("lista");
+      lista.innerHTML = "";
+      let total = 0;
 
-  cart.forEach((item, index) => {
-    lista.innerHTML += `
-      <div class="item">
-        ${item.nome} (${item.qtd}) - R$ ${item.preco * item.qtd}
-        <button onclick="removerItem(${index})">X</button>
-      </div>
-    `;
-    total += item.preco * item.qtd;
-  });
+      cart.forEach((item, index) => {
+        lista.innerHTML += `
+          <div class="item">
+            ${item.nome} (${item.qtd}) - R$ ${item.preco * item.qtd}
+            <button onclick="removerItem(${index})">X</button>
+          </div>
+        `;
+        total += item.preco * item.qtd;
+      });
 
-  document.getElementById("total").innerText = "Total: R$ " + total;
-}
+      document.getElementById("total").innerText = "Total: R$ " + total;
+    }
 
-function removerItem(index) {
-  cart.splice(index, 1);
-  atualizar();
-}
+    function removerItem(index) {
+      cart.splice(index, 1);
+      atualizar();
+    }
 
-function calcularFrete(){
-  let cep = document.getElementById("cep").value.replace("-", "");
-  if(cep.length !== 8){ alert("Digite um CEP válido"); return; }
+    function calcularFrete() {
+      let cep = document.getElementById("cep").value.replace("-", "");
 
-  let prefixo = cep.substring(0,2);
+      if (cep.length !== 8) {
+        alert("Digite um CEP válido");
+        return;
+      }
 
-  if(prefixo == "22"){ valorFrete = 12; tipoFrete = "Entrega local RJ"; }
-  else if(prefixo >= "20" && prefixo <= "28"){ valorFrete = 18; tipoFrete = "Sudeste"; }
-  else if(prefixo >= "10" && prefixo <= "19"){ valorFrete = 22; tipoFrete = "São Paulo"; }
-  else if(prefixo >= "30" && prefixo <= "39"){ valorFrete = 25; tipoFrete = "Minas Gerais"; }
-  else { valorFrete = 35; tipoFrete = "Brasil (Sedex)"; }
+      let prefixo = cep.substring(0, 2);
 
-  document.getElementById("frete").innerText =
-    `Frete: R$ ${valorFrete} (${tipoFrete})`;
-}
+      if (prefixo == "22") {
+        valorFrete = 12;
+        tipoFrete = "Entrega local RJ";
+      } else if (prefixo >= "20" && prefixo <= "28") {
+        valorFrete = 18;
+        tipoFrete = "Sudeste";
+      } else if (prefixo >= "10" && prefixo <= "19") {
+        valorFrete = 22;
+        tipoFrete = "São Paulo";
+      } else if (prefixo >= "30" && prefixo <= "39") {
+        valorFrete = 25;
+        tipoFrete = "Minas Gerais";
+      } else {
+        valorFrete = 35;
+        tipoFrete = "Brasil (Sedex)";
+      }
 
-function finalizarCompra() {
-  if(cart.length === 0){ alert("Seu carrinho está vazio!"); return; }
+      document.getElementById("frete").innerText =
+        `Frete: R$ ${valorFrete} (${tipoFrete})`;
+    }
 
-  let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
-  let total = 0;
+    function finalizarCompra() {
+      if (cart.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
 
-  cart.forEach(item => {
-    mensagem += `- ${item.nome} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
-    total += item.preco * item.qtd;
-  });
+      let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
+      let total = 0;
 
-  mensagem += `%0ATotal produtos: R$ ${total}%0A`;
+      cart.forEach(item => {
+        mensagem += `- ${item.nome} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
+        total += item.preco * item.qtd;
+      });
 
-  if(valorFrete > 0){
-    mensagem += `Frete: R$ ${valorFrete} (${tipoFrete})%0A`;
-    total += valorFrete;
-  }
+      mensagem += `%0ATotal produtos: R$ ${total}%0A`;
 
-  mensagem += `%0ATotal final: R$ ${total}`;
+      if (valorFrete > 0) {
+        mensagem += `Frete: R$ ${valorFrete} (${tipoFrete})%0A`;
+        total += valorFrete;
+      }
 
-  let url = `https://wa.me/5521975975595?text=${mensagem}`;
-  window.open(url, "_blank");
-}
-</script>
+      mensagem += `%0ATotal final: R$ ${total}`;
+
+      let url = `https://wa.me/5521975975595?text=${mensagem}`;
+      window.open(url, "_blank");
+    }
+  </script>
 
 </body>
 </html>
