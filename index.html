@@ -15,13 +15,16 @@
       box-sizing: border-box;
     }
 
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
       font-family: 'Poppins', sans-serif;
       background: #3D1C0D;
       color: #fff;
     }
 
-    /* HEADER */
     header {
       display: flex;
       justify-content: space-between;
@@ -33,7 +36,6 @@
       box-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
-    /* HERO */
     .hero {
       height: 80vh;
       display: flex;
@@ -43,9 +45,15 @@
       background-size: contain;
     }
 
-    /* PRODUTOS */
     .produtos {
       padding: 60px 40px;
+    }
+
+    .produtos h2 {
+      margin-bottom: 25px;
+      color: #E9B44C;
+      border-left: 5px solid #E9B44C;
+      padding-left: 10px;
     }
 
     .grid {
@@ -99,7 +107,6 @@
       color: #ff4d4d;
     }
 
-    /* CARRINHO */
     .carrinho {
       width: 100%;
       margin-top: 40px;
@@ -208,201 +215,258 @@
       border-radius: 10px;
       font-size: 16px;
     }
+
+    /* MENU */
+    .menu-toggle {
+      position: fixed;
+      top: 100px;
+      right: 20px;
+      font-size: 30px;
+      background: #E9B44C;
+      color: #3D1C0D;
+      padding: 10px 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      z-index: 999;
+    }
+
+    .menu-lateral {
+      position: fixed;
+      top: 150px;
+      right: -220px;
+      width: 200px;
+      background: #2b1409;
+      border-radius: 10px;
+      padding: 15px;
+      transition: 0.3s;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+    }
+
+    .menu-lateral a {
+      display: block;
+      color: #E9B44C;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
   </style>
 </head>
 
 <body>
 
-  <header></header>
+<header></header>
 
-  <section class="hero"></section>
+<section class="hero"></section>
 
-  <section class="produtos" id="produtos">
-    <div class="grid">
+<!-- MENU -->
+<div class="menu-toggle" onclick="toggleMenu()">⋮</div>
 
-      <!-- PRODUTO -->
-      <div class="card">
-        <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
-        <div class="card-body">
-          <h3>Conjunto Preto Renda Ajustável</h3>
-          <p class="preco">R$ 60,00</p>
+<div class="menu-lateral" id="menu">
+  <a href="#kit" onclick="toggleMenu()">Kit 3 por 60</a>
+  <a href="#sexshop" onclick="toggleMenu()">Sex Shop</a>
+  <a href="#lingeries" onclick="toggleMenu()">Lingeries</a>
+  <a href="#babydoll" onclick="toggleMenu()">Baby Doll Luxo</a>
+  <a href="#todos" onclick="toggleMenu()">Todos os itens</a>
+</div>
 
-          <button onclick="addToCart('Conjunto Renda Luxo', 60, this)">
-            Comprar
-          </button>
+<!-- SEÇÕES -->
+<section class="produtos" id="kit">
+  <h2>Kit 3 por 60,00 Variadas</h2>
+  <div class="grid"></div>
+</section>
 
-          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-        </div>
+<section class="produtos" id="sexshop">
+  <h2>Sex Shop</h2>
+  <div class="grid"></div>
+</section>
+
+<section class="produtos" id="lingeries">
+  <h2>Conjunto Lingeries</h2>
+  <div class="grid">
+    <div class="card">
+      <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
+      <div class="card-body">
+        <h3>Conjunto Preto Renda Ajustável</h3>
+        <p class="preco">R$ 60,00</p>
+
+        <button onclick="addToCart('Conjunto Renda Luxo', 60, this)">
+          Comprar
+        </button>
+
+        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
       </div>
-
     </div>
-  </section>
+  </div>
+</section>
 
-  <!-- CARRINHO -->
-  <div class="carrinho" id="cart">
-    <h2>Seu Carrinho</h2>
+<section class="produtos" id="babydoll">
+  <h2>Baby doll linha Luxo</h2>
+  <div class="grid"></div>
+</section>
 
-    <div id="lista"></div>
-    <p class="total" id="total"></p>
-    <p class="timer" id="timer"></p>
+<section class="produtos" id="todos">
+  <h2>Todos os itens</h2>
+  <div class="grid"></div>
+</section>
 
-    <div class="frete-box">
-      <h3>Frete</h3>
+<!-- CARRINHO -->
+<div class="carrinho" id="cart">
+  <h2>Seu Carrinho</h2>
 
-      <input id="cep" placeholder="Digite seu CEP">
+  <div id="lista"></div>
+  <p class="total" id="total"></p>
+  <p class="timer" id="timer"></p>
 
-      <button class="calcular-frete-btn" onclick="calcularFrete()">
-        Calcular Frete
-      </button>
+  <div class="frete-box" id="frete-section">
+    <h3>Frete</h3>
 
-      <p id="frete"></p>
-    </div>
+    <input id="cep" placeholder="Digite seu CEP">
 
-    <button class="btn-whats" onclick="finalizarCompra()">
-      Finalizar Compra via WhatsApp
+    <button class="calcular-frete-btn" onclick="calcularFrete()">
+      Calcular Frete
     </button>
+
+    <p id="frete"></p>
   </div>
 
-  <!-- WHATSAPP -->
-  <a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
-    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-  </a>
+  <button class="btn-whats" onclick="finalizarCompra()">
+    Finalizar Compra via WhatsApp
+  </button>
+</div>
 
-  <footer>
-    <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
-  </footer>
+<a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
+  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+</a>
 
-  <script>
-    let cart = [];
-    let valorFrete = 0;
-    let tipoFrete = "";
-    let tempo = 600;
-    let timerInterval;
+<footer>
+  <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
+</footer>
 
-    function iniciarTimer() {
+<script>
+let cart = [];
+let valorFrete = 0;
+let tipoFrete = "";
+let tempo = 600;
+let timerInterval;
+
+function toggleMenu() {
+  let menu = document.getElementById("menu");
+  menu.style.right = menu.style.right === "20px" ? "-220px" : "20px";
+}
+
+function iniciarTimer() {
+  clearInterval(timerInterval);
+  tempo = 600;
+
+  timerInterval = setInterval(() => {
+    let m = Math.floor(tempo / 60);
+    let s = tempo % 60;
+
+    document.getElementById("timer").innerText =
+      `⏳ Reserva expira em ${m}:${s < 10 ? '0' : ''}${s}`;
+
+    tempo--;
+
+    if (tempo < 0) {
       clearInterval(timerInterval);
-      tempo = 600;
-
-      timerInterval = setInterval(() => {
-        let m = Math.floor(tempo / 60);
-        let s = tempo % 60;
-
-        document.getElementById("timer").innerText =
-          `⏳ Reserva expira em ${m}:${s < 10 ? '0' : ''}${s}`;
-
-        tempo--;
-
-        if (tempo < 0) {
-          clearInterval(timerInterval);
-          cart = [];
-          atualizar();
-          document.getElementById("timer").innerText = "Tempo expirado ⛔";
-        }
-      }, 1000);
-    }
-
-    function addToCart(nome, preco, botao) {
-      let item = cart.find(i => i.nome === nome);
-
-      if (item) {
-        item.qtd += 1;
-      } else {
-        cart.push({ nome, preco, qtd: 1 });
-      }
-
-      botao.innerText = "Adicionado ✓";
-      botao.style.background = "#25D366";
-
-      setTimeout(() => {
-        botao.innerText = "Comprar";
-        botao.style.background = "#E9B44C";
-      }, 1200);
-
-      iniciarTimer();
+      cart = [];
       atualizar();
+      document.getElementById("timer").innerText = "Tempo expirado ⛔";
     }
+  }, 1000);
+}
 
-    function atualizar() {
-      let lista = document.getElementById("lista");
-      lista.innerHTML = "";
-      let total = 0;
+function addToCart(nome, preco, botao) {
+  let item = cart.find(i => i.nome === nome);
 
-      cart.forEach((item, index) => {
-        lista.innerHTML += `
-          <div class="item">
-            ${item.nome} (${item.qtd}) - R$ ${item.preco * item.qtd}
-            <button onclick="removerItem(${index})">X</button>
-          </div>
-        `;
-        total += item.preco * item.qtd;
-      });
+  if (item) item.qtd++;
+  else cart.push({ nome, preco, qtd: 1 });
 
-      document.getElementById("total").innerText = "Total: R$ " + total;
-    }
+  botao.innerText = "Adicionado ✓";
+  botao.style.background = "#25D366";
 
-    function removerItem(index) {
-      cart.splice(index, 1);
-      atualizar();
-    }
+  setTimeout(() => {
+    botao.innerText = "Comprar";
+    botao.style.background = "#E9B44C";
+  }, 1200);
 
-    function calcularFrete() {
-      let cep = document.getElementById("cep").value.replace("-", "");
+  iniciarTimer();
+  atualizar();
+}
 
-      if (cep.length !== 8) {
-        alert("Digite um CEP válido");
-        return;
-      }
+function atualizar() {
+  let lista = document.getElementById("lista");
+  lista.innerHTML = "";
+  let total = 0;
 
-      let prefixo = cep.substring(0, 2);
+  cart.forEach((item, index) => {
+    lista.innerHTML += `
+      <div class="item">
+        ${item.nome} (${item.qtd}) - R$ ${item.preco * item.qtd}
+        <button onclick="removerItem(${index})">X</button>
+      </div>
+    `;
+    total += item.preco * item.qtd;
+  });
 
-      if (prefixo == "22") {
-        valorFrete = 12;
-        tipoFrete = "Entrega local RJ";
-      } else if (prefixo >= "20" && prefixo <= "28") {
-        valorFrete = 18;
-        tipoFrete = "Sudeste";
-      } else if (prefixo >= "10" && prefixo <= "19") {
-        valorFrete = 22;
-        tipoFrete = "São Paulo";
-      } else if (prefixo >= "30" && prefixo <= "39") {
-        valorFrete = 25;
-        tipoFrete = "Minas Gerais";
-      } else {
-        valorFrete = 35;
-        tipoFrete = "Brasil (Sedex)";
-      }
+  document.getElementById("total").innerText = "Total: R$ " + total;
+}
 
-      document.getElementById("frete").innerText =
-        `Frete: R$ ${valorFrete} (${tipoFrete})`;
-    }
+function removerItem(index) {
+  cart.splice(index, 1);
+  atualizar();
+}
 
-    function finalizarCompra() {
-      if (cart.length === 0) {
-        alert("Seu carrinho está vazio!");
-        return;
-      }
+function calcularFrete() {
+  let cep = document.getElementById("cep").value.replace("-", "");
 
-      let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
-      let total = 0;
+  if (cep.length !== 8) {
+    alert("Digite um CEP válido");
+    return;
+  }
 
-      cart.forEach(item => {
-        mensagem += `- ${item.nome} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
-        total += item.preco * item.qtd;
-      });
+  let prefixo = cep.substring(0, 2);
 
-      mensagem += `%0ATotal produtos: R$ ${total}%0A`;
+  if (prefixo == "22") {
+    valorFrete = 12;
+    tipoFrete = "Entrega local RJ";
+  } else if (prefixo >= "20" && prefixo <= "28") {
+    valorFrete = 18;
+    tipoFrete = "Sudeste";
+  } else {
+    valorFrete = 35;
+    tipoFrete = "Brasil";
+  }
 
-      if (valorFrete > 0) {
-        mensagem += `Frete: R$ ${valorFrete} (${tipoFrete})%0A`;
-        total += valorFrete;
-      }
+  document.getElementById("frete").innerText =
+    `Frete: R$ ${valorFrete} (${tipoFrete})`;
+}
 
-      mensagem += `%0ATotal final: R$ ${total}`;
+function finalizarCompra() {
+  if (cart.length === 0) {
+    alert("Seu carrinho está vazio!");
+    return;
+  }
 
-      let url = `https://wa.me/5521975975595?text=${mensagem}`;
-      window.open(url, "_blank");
-    }
-  </script>
+  let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
+  let total = 0;
+
+  cart.forEach(item => {
+    mensagem += `- ${item.nome} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
+    total += item.preco * item.qtd;
+  });
+
+  mensagem += `%0ATotal produtos: R$ ${total}%0A`;
+
+  if (valorFrete > 0) {
+    mensagem += `Frete: R$ ${valorFrete}%0A`;
+    total += valorFrete;
+  }
+
+  mensagem += `%0ATotal final: R$ ${total}`;
+
+  window.open(`https://wa.me/5521975975595?text=${mensagem}`, "_blank");
+}
+</script>
 
 </body>
 </html>
