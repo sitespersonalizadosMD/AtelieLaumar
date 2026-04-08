@@ -555,16 +555,39 @@ function atualizar() {
   let lista = document.getElementById("lista");
   lista.innerHTML = "";
   let total = 0;
+let totalQtdKit = 0;
 
-  cart.forEach((item, index) => {
-    lista.innerHTML += `
-      <div class="item">
-        ${item.nome} (${item.qtd}) - R$ ${item.preco * item.qtd}
-        <button onclick="removerItem(${index})">X</button>
-      </div>
-    `;
-    total += item.preco * item.qtd;
-  });
+// soma normal
+cart.forEach((item, index) => {
+  lista.innerHTML += `
+    <div class="item">
+      ${item.nome} (${item.qtd}) - R$ ${item.preco * item.qtd}
+      <button onclick="removerItem(${index})">X</button>
+    </div>
+  `;
+
+  total += item.preco * item.qtd;
+
+  // só conta itens do KIT
+  if (item.preco === 24) {
+    totalQtdKit += item.qtd;
+  }
+});
+
+// aplica desconto do kit
+let kits = Math.floor(totalQtdKit / 3);
+let desconto = kits * 12;
+
+total -= desconto;
+
+// mostrar info da promoção
+if (kits > 0) {
+  lista.innerHTML += `
+    <div class="item">
+      🎁 Promoção aplicada (${kits}x Kit 3 por 60) - -R$ ${desconto}
+    </div>
+  `;
+}
 
   document.getElementById("total").innerText = "Total: R$ " + total;
 }
