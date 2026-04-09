@@ -248,6 +248,16 @@
       text-decoration: none;
       margin-bottom: 10px;
     }
+    .pagamento-box {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.pagamento-box select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
   </style>
 </head>
 
@@ -575,6 +585,25 @@
     </button>
 
     <p id="frete"></p>
+
+    <div class="pagamento-box">
+  <h3>Forma de Pagamento</h3>
+
+  <select id="pagamento" onchange="mostrarParcelas()">
+    <option value="">Selecione</option>
+    <option value="Pix">Pix</option>
+    <option value="Débito">Cartão de Débito</option>
+    <option value="Crédito">Cartão de Crédito</option>
+  </select>
+
+  <select id="parcelas" style="display:none; margin-top:10px;">
+    <option value="1x">1x com juros</option>
+    <option value="2x">2x com juros</option>
+    <option value="3x">3x com juros</option>
+    <option value="4x">4x com juros</option>
+  </select>
+</div>
+    
   </div>
 
   <button class="btn-whats" onclick="finalizarCompra()">
@@ -596,6 +625,17 @@ let valorFrete = 0;
 let tipoFrete = "";
 let tempo = 600;
 let timerInterval;
+
+  function mostrarParcelas() {
+  let pagamento = document.getElementById("pagamento").value;
+  let parcelas = document.getElementById("parcelas");
+
+  if (pagamento === "Crédito") {
+    parcelas.style.display = "block";
+  } else {
+    parcelas.style.display = "none";
+  }
+}
 
 function toggleMenu() {
   let menu = document.getElementById("menu");
@@ -734,7 +774,20 @@ function finalizarCompra() {
     total += valorFrete;
   }
 
-  mensagem += `%0ATotal final: R$ ${total}`;
+ let pagamento = document.getElementById("pagamento").value;
+let parcelas = document.getElementById("parcelas").value;
+
+if (pagamento) {
+  mensagem += `%0AForma de pagamento: ${pagamento}`;
+
+  if (pagamento === "Crédito") {
+    mensagem += ` (${parcelas})`;
+  }
+
+  mensagem += `%0A`;
+}
+
+mensagem += `%0ATotal final: R$ ${total}`;
 
   window.open(`https://wa.me/5521975975595?text=${mensagem}`, "_blank");
 }
