@@ -884,7 +884,7 @@ function finalizarCompra() {
   let total = 0;
 
   cart.forEach(item => {
-    mensagem += `- ${item.nome} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
+    mensagem += `- ${item.nome} ${item.tamanho ? "(" + item.tamanho + ")" : ""} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
     total += item.preco * item.qtd;
   });
 
