@@ -265,6 +265,21 @@
   border-radius: 6px;
   border: none;
 }
+    .carrossel {
+  overflow-x: auto;
+  display: flex;
+  scroll-snap-type: x mandatory;
+}
+
+.slides {
+  display: flex;
+}
+
+.slide {
+  min-width: 100%;
+  scroll-snap-align: center;
+  border-radius: 10px;
+}
   </style>
 </head>
 
