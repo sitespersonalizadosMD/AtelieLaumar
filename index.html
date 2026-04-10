@@ -790,13 +790,13 @@
   <div class="frete-box" id="frete-section">
     <h3>Frete</h3>
 
-    <input id="cep" placeholder="Digite seu CEP">
+    <input id="cep" placeholder="Digite seu CEP" maxlength="9">
 
-    <button class="calcular-frete-btn" onclick="calcularFrete()">
-      Calcular Frete
-    </button>
+<button class="calcular-frete-btn" onclick="buscarEndereco()">
+  Buscar Endereço
+</button>
 
-    <p id="frete"></p>
+<div id="endereco" style="margin-top:10px;"></div>
 
     <div class="pagamento-box">
   <h3>Forma de Pagamento</h3>
@@ -1033,6 +1033,15 @@ if (pagamento) {
 
 mensagem += `%0ATotal final: R$ ${total}`;
 
+  mensagem += `%0ATotal final: R$ ${total}%0A`;
+
+if (window.enderecoCliente) {
+  mensagem += `%0A📍 Endereço:%0A`;
+  mensagem += `${window.enderecoCliente.logradouro}, ${window.enderecoCliente.bairro}, ${window.enderecoCliente.localidade} - ${window.enderecoCliente.uf}%0A`;
+}
+
+  
+
   window.open(`https://wa.me/5521975975595?text=${mensagem}`, "_blank");
 }
   /* 👇 COLE AQUI EMBAIXO */
@@ -1056,6 +1065,34 @@ carrosseis.forEach(carrossel => {
     behavior: "smooth",
     block: "start"
   });
+}
+  function buscarEndereco() {
+  let cep = document.getElementById("cep").value.replace(/\D/g, "");
+
+  if (cep.length !== 8) {
+    alert("Digite um CEP válido");
+    return;
+  }
+
+  fetch(`https://viacep.com.br/ws/${cep}/json/`)
+    .then(res => res.json())
+    .then(data => {
+      if (data.erro) {
+        alert("CEP não encontrado");
+        return;
+      }
+
+      document.getElementById("endereco").innerHTML = `
+        📍 <b>Endereço encontrado:</b><br>
+        ${data.logradouro || ""}<br>
+        ${data.bairro || ""}<br>
+        ${data.localidade} - ${data.uf}<br>
+        ${cep}
+      `;
+
+      // salva para o WhatsApp
+      window.enderecoCliente = data;
+    });
 }
 
 </script>
