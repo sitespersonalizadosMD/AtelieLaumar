@@ -341,6 +341,9 @@
   cursor: pointer;
   box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
+    .carrinho-fixo {
+  cursor: pointer;
+}
   </style>
 </head>
 
@@ -980,12 +983,6 @@ function finalizarCompra() {
     alert("Seu carrinho está vazio!");
     return;
   }
-  function irParaCarrinho() {
-  document.getElementById("carrinho").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-}
 
   let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
   let total = 0;
@@ -1054,6 +1051,12 @@ carrosseis.forEach(carrossel => {
     }
   });
 });
+  function irParaCarrinho() {
+  document.getElementById("carrinho").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
 
 </script>
 <footer class="rodape">
