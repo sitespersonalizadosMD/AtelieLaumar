@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -33,7 +34,7 @@
       background: #2b1409;
       position: sticky;
       top: 0;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.5);
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
     }
 
     .hero {
@@ -67,7 +68,7 @@
       border-radius: 12px;
       overflow: hidden;
       transition: 0.3s;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     }
 
     .card:hover {
@@ -113,7 +114,7 @@
       background: #2b1409;
       padding: 25px;
       border-radius: 15px;
-      box-shadow: 0 5px 25px rgba(0,0,0,0.5);
+      box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5);
     }
 
     .carrinho h2 {
@@ -239,7 +240,7 @@
       border-radius: 10px;
       padding: 15px;
       transition: 0.3s;
-      box-shadow: 0 5px 20px rgba(0,0,0,0.5);
+      box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
     }
 
     .menu-lateral a {
@@ -248,506 +249,508 @@
       text-decoration: none;
       margin-bottom: 10px;
     }
+
     .pagamento-box {
-  margin-top: 20px;
-  text-align: center;
-}
+      margin-top: 20px;
+      text-align: center;
+    }
 
-.pagamento-box select {
-  width: 100%;
-  padding: 10px;
-  margin-top: 10px;
-}
+    .pagamento-box select {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
     .card select {
-  width: 100%;
-  padding: 8px;
-  margin-top: 10px;
-  border-radius: 6px;
-  border: none;
-}
-.carrossel {
-  width: 100%;
-  overflow-x: auto;
-  display: flex;
-  scroll-snap-type: x mandatory;
-  -webkit-overflow-scrolling: touch;
-}
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+      border-radius: 6px;
+      border: none;
+    }
 
-.slides {
-  display: flex;
-  width: 100%;
-}
+    .carrossel {
+      overflow-x: auto;
+      scroll-snap-type: x mandatory;
+    }
 
-.slide {
-  flex: 0 0 100%;
-  width: 100%;
-  height: 300px;
-  object-fit: cover;
-  scroll-snap-align: center;
-  border-radius: 10px;
-}
+    .slides {
+      display: flex;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      /* ESSA LINHA É A CHAVE */
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+      scroll-snap-align: start;
+      border-radius: 10px;
+    }
 
     .dots {
-  display: flex;
-  justify-content: center;
-  margin-top: 8px;
-}
+      display: flex;
+      justify-content: center;
+      margin-top: 8px;
+    }
 
-.dot {
-  height: 8px;
-  width: 8px;
-  margin: 5px;
-  background-color: #ccc;
-  border-radius: 50%;
-  display: inline-block;
-  transition: 0.3s;
-}
+    .dot {
+      height: 8px;
+      width: 8px;
+      margin: 5px;
+      background-color: #ccc;
+      border-radius: 50%;
+      display: inline-block;
+      transition: 0.3s;
+    }
 
-.dot.active {
-  background-color: #d4a24c; /* cor dourada do seu site */
-}
+    .dot.active {
+      background-color: #d4a24c;
+      /* cor dourada do seu site */
+    }
+
     .descricao {
-  font-size: 14px;      /* diminui o tamanho */
-  color: #555;          /* deixa mais suave */
-  margin: 8px 0;        /* espaçamento */
-  line-height: 1.4;     /* melhora leitura */
-}
+      font-size: 14px;
+      /* diminui o tamanho */
+      color: #555;
+      /* deixa mais suave */
+      margin: 8px 0;
+      /* espaçamento */
+      line-height: 1.4;
+      /* melhora leitura */
+    }
+
     .rodape {
-  text-align: center;
-  font-size: 12px;
-  color: #999;
-  padding: 20px 10px;
-  margin-top: 40px;
-}
+      text-align: center;
+      font-size: 12px;
+      color: #999;
+      padding: 20px 10px;
+      margin-top: 40px;
+    }
 
-.rodape p {
-  margin: 0;
-}
+    .rodape p {
+      margin: 0;
+    }
+
     body {
-  padding-bottom: 80px;
-}
+      padding-bottom: 80px;
+    }
 
-.whatsapp-btn {
-  bottom: 20px;
-}
+    .whatsapp-btn {
+      bottom: 20px;
+    }
+
     .carrinho-fixo {
-  position: fixed;
-  bottom: 90px;
-  right: 20px;
-  background: #E9B44C;
-  width: 60px;
-  height: 60px;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 26px;
-  cursor: pointer;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
-}
+      position: fixed;
+      bottom: 90px;
+      right: 20px;
+      background: #E9B44C;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 26px;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.4);
+    }
+
     .carrinho-fixo {
-  cursor: pointer;
-}
-    .carrossel::-webkit-scrollbar {
-  display: none;
-}
-    .slides {
-  touch-action: pan-x;
-}
+      cursor: pointer;
+    }
   </style>
 </head>
 
 <body>
 
-<header></header>
+  <header></header>
 
-<section class="hero"></section>
+  <section class="hero"></section>
 
-<!-- MENU -->
-<div class="menu-toggle" onclick="toggleMenu()">☰</div>
+  <div class="menu-toggle" onclick="toggleMenu()">☰</div>
 
-<div class="menu-lateral" id="menu">
-  <a href="#kit" onclick="toggleMenu()">Kit 3 por 60</a>
-  <a href="#sexshop" onclick="toggleMenu()">Sex Shop</a>
-  <a href="#lingeries" onclick="toggleMenu()">Lingeries</a>
-  <a href="#babydoll" onclick="toggleMenu()">Baby Doll Luxo</a>
-  <a href="#plus size" onclick="toggleMenu()">Plus size</a>
-</div>
-
-<!-- SEÇÕES -->
-<section class="produtos" id="kit">
-  <h2>Kit 3 por 60,00 Variadas</h2>
-  <div class="grid">
-
-  <div class="card">
-    <img src="Tangaemoji.png">
-    <div class="card-body">
-      <h3>Tanga Emoji</h3>
-      <p class="descricao">
-    Tanga em renda com ajuste regulável, confortável e com caimento perfeito ✨
-  </p>
-      <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-      <button onclick="addToCart('Tanga Emoji', 24, this, true)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
+  <div class="menu-lateral" id="menu">
+    <a href="#kit" onclick="toggleMenu()">Kit 3 por 60</a>
+    <a href="#sexshop" onclick="toggleMenu()">Sex Shop</a>
+    <a href="#lingeries" onclick="toggleMenu()">Lingeries</a>
+    <a href="#babydoll" onclick="toggleMenu()">Baby Doll Luxo</a>
+    <a href="#plus size" onclick="toggleMenu()">Plus size</a>
   </div>
 
-  <div class="card">
-    <img src="calcinha-tanga.png">
-    <div class="card-body">
-      <h3>Calcinha Tanga Laço Regulável</h3>
-      <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-      <button onclick="addToCart('Calcinha Tanga Laço Regulável', 24, this, true)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+  <section class="produtos" id="kit">
+    <h2>Kit 3 por 60,00 Variadas</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="Tangaemoji.png">
+        <div class="card-body">
+          <h3>Tanga Emoji</h3>
+          <p class="descricao">
+            Tanga em renda com ajuste regulável, confortável e com caimento perfeito ✨
+          </p>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <button onclick="addToCart('Tanga Emoji', 24, this, true)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="calcinha-tanga.png">
+        <div class="card-body">
+          <h3>Calcinha Tanga Laço Regulável</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <button onclick="addToCart('Calcinha Tanga Laço Regulável', 24, this, true)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="tanga-borboleta.png">
+        <div class="card-body">
+          <h3>Tanga Borboleta</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <button onclick="addToCart('Tanga Borboleta', 24, this, true)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="tanga-cereja.png">
+        <div class="card-body">
+          <h3>Tanga Cereja</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <button onclick="addToCart('Tanga Cereja', 24, this, true)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="tanga-Playboy.png">
+        <div class="card-body">
+          <h3>Tanga Playboy</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <button onclick="addToCart('Tanga Playboy', 24, this, true)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Calcinha-Premium.png">
+        <div class="card-body">
+          <h3>Calcinha Premium com Renda</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <button onclick="addToCart('Calcinha Premium com Renda', 24, this, true)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
     </div>
-  </div>
+  </section>
 
-  <div class="card">
-    <img src="tanga-borboleta.png">
-    <div class="card-body">
-      <h3>Tanga Borboleta</h3>
-      <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-      <button onclick="addToCart('Tanga Borboleta', 24, this, true)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+  <section class="produtos" id="sexshop">
+    <h2>Sex Shop</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="gel-beijável.png">
+        <div class="card-body">
+          <h3>Gel Beijável Sabores</h3>
+          <p class="preco">R$ 10,00</p>
+          <button onclick="addToCart('Gel Beijável Sabores', 10, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="cheirinho-perfume.png">
+        <div class="card-body">
+          <h3>Um cheirinho que marca presença</h3>
+          <p class="preco">R$ 25,00</p>
+          <button onclick="addToCart('Um cheirinho que marca presença', 25, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="pequeno-descreto.png">
+        <div class="card-body">
+          <h3>Pequeno, Descreto e Super Prático</h3>
+          <p class="preco">R$ 40,00</p>
+          <button onclick="addToCart('Pequeno, Descreto e Super Prático', 40, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Gel-vibrador.png">
+        <div class="card-body">
+          <h3>Gel Vibrador Beijável Sabor Chiclete</h3>
+          <p class="preco">R$ 30,00</p>
+          <button onclick="addToCart('Gel Vibrador Beijável Sabor Chiclete', 30, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Gel Estimulante.png">
+        <div class="card-body">
+          <h3>Gel Estimulante de Orgasmo</h3>
+          <p class="preco">R$ 25,00</p>
+          <button onclick="addToCart('Gel Estimulante de Orgasmo', 25, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="varinha-magica.jpeg">
+        <div class="card-body">
+          <h3>Varinha Mágica</h3>
+          <p class="preco">R$ 90,00</p>
+          <button onclick="addToCart('Varinha Mágica', 90, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Vibrador Inteligente.png">
+        <div class="card-body">
+          <h3>Vibrador Inteligente com Controle por Aplicativo</h3>
+          <p class="preco">R$ 90,00</p>
+          <button onclick="addToCart('Vibrador Inteligente com Controle por Aplicativo', 90, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="bolinha lubrificante sexa.png">
+        <div class="card-body">
+          <h3>Bolinha Lubrificante para Sexo Anal</h3>
+          <p class="preco">R$ 15,00</p>
+          <button onclick="addToCart('Bolinha Lubrificante para Sexo Anal', 15, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="bolinha lubrificante Est.png">
+        <div class="card-body">
+          <h3>Bolinha Lubrificante Estimulante</h3>
+          <p class="preco">R$ 15,00</p>
+          <button onclick="addToCart('Bolinha Lubrificante Estimulante', 15, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="Bolinha lubrificante SA1.png">
+        <div class="card-body">
+          <h3>Bolinha Lubrificante – Efeito Eletrizante</h3>
+          <p class="preco">R$ 15,00</p>
+          <button onclick="addToCart('Bolinha Lubrificante – Efeito Eletrizante', 15, this)">Comprar</button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
     </div>
-  </div>
-
-  <div class="card">
-    <img src="tanga-cereja.png">
-    <div class="card-body">
-      <h3>Tanga Cereja</h3>
-      <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-      <button onclick="addToCart('Tanga Cereja', 24, this, true)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="tanga-Playboy.png">
-    <div class="card-body">
-      <h3>Tanga Playboy</h3>
-      <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-      <button onclick="addToCart('Tanga Playboy', 24, this, true)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="Calcinha-Premium.png">
-    <div class="card-body">
-      <h3>Calcinha Premium com Renda</h3>
-      <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-      <button onclick="addToCart('Calcinha Premium com Renda', 24, this, true)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-</div>
-</section>
-
-<section class="produtos" id="sexshop">
-  <h2>Sex Shop</h2>
-  <div class="grid">
-
-  <div class="card">
-    <img src="gel-beijável.png">
-    <div class="card-body">
-      <h3>Gel Beijável Sabores</h3>
-      <p class="preco">R$ 10,00</p>
-      <button onclick="addToCart('Gel Beijável Sabores', 10, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-  <div class="card">
-    <img src="cheirinho-perfume.png">
-    <div class="card-body">
-      <h3>Um cheirinho que marca presença</h3>
-      <p class="preco">R$ 25,00</p>
-      <button onclick="addToCart('Um cheirinho que marca presença', 25, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="pequeno-descreto.png">
-    <div class="card-body">
-      <h3>Pequeno, Descreto e Super Prático</h3>
-      <p class="preco">R$ 40,00</p>
-      <button onclick="addToCart('Pequeno, Descreto e Super Prático', 40, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="Gel-vibrador.png">
-    <div class="card-body">
-      <h3>Gel Vibrador Beijável Sabor Chiclete</h3>
-      <p class="preco">R$ 30,00</p>
-      <button onclick="addToCart('Gel Vibrador Beijável Sabor Chiclete', 30, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-     <div class="card">
-    <img src="Gel Estimulante.png">
-    <div class="card-body">
-      <h3>Gel Estimulante de Orgasmo</h3>
-      <p class="preco">R$ 25,00</p>
-      <button onclick="addToCart('Gel Estimulante de Orgasmo', 25, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="varinha-magica.jpeg">
-    <div class="card-body">
-      <h3>Varinha Mágica</h3>
-      <p class="preco">R$ 90,00</p>
-      <button onclick="addToCart('Varinha Mágica', 90, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="Vibrador Inteligente.png">
-    <div class="card-body">
-      <h3>Vibrador Inteligente com Controle por Aplicativo</h3>
-      <p class="preco">R$ 90,00</p>
-      <button onclick="addToCart('Vibrador Inteligente com Controle por Aplicativo', 90, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="bolinha lubrificante sexa.png">
-    <div class="card-body">
-      <h3>Bolinha Lubrificante para Sexo Anal</h3>
-      <p class="preco">R$ 15,00</p>
-      <button onclick="addToCart('Bolinha Lubrificante para Sexo Anal', 15, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="bolinha lubrificante Est.png">
-    <div class="card-body">
-      <h3>Bolinha Lubrificante Estimulante</h3>
-      <p class="preco">R$ 15,00</p>
-      <button onclick="addToCart('Bolinha Lubrificante Estimulante', 15, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-
-    <div class="card">
-    <img src="Bolinha lubrificante SA1.png">
-    <div class="card-body">
-      <h3>Bolinha Lubrificante – Efeito Eletrizante</h3>
-      <p class="preco">R$ 15,00</p>
-      <button onclick="addToCart('Bolinha Lubrificante – Efeito Eletrizante', 15, this)">Comprar</button>
-      <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-    </div>
-  </div>
-  
-</section>
+  </section>
 
   <section class="produtos" id="Lingeries">
-  <h2>Conjunto Lingeries</h2>
-  <div class="grid">
-    
-    <div class="card">
-      <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
-      <div class="card-body">
-        <h3>Conjunto Preto Renda Ajustável</h3>
-         <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-        <p class="preco">R$ 60,00</p>
-        <button onclick="addToCart('Conjunto Preto Renda Ajustável', 60, this)">
-          Comprar
-        </button>
-        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+    <h2>Conjunto Lingeries</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="WhatsApp Image 2026-04-06 at 10.28.41.jpeg">
+        <div class="card-body">
+          <h3>Conjunto Preto Renda Ajustável</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <p class="preco">R$ 60,00</p>
+          <button onclick="addToCart('Conjunto Preto Renda Ajustável', 60, this)">
+            Comprar
+          </button>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="rendado-vermelho.png">
+        <div class="card-body">
+          <h3>Conjunto Rendado Vermelho</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <p class="preco">R$ 55,00</p>
+
+          <button onclick="addToCart('Conjunto Rendado Vermelho', 55, this)">
+            Comprar
+          </button>
+
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+        <img src="conjunto-coração.png">
+        <div class="card-body">
+          <h3>Conjunto Coração</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <p class="preco">R$ 60,00</p>
+
+          <button onclick="addToCart('Conjunto Coração', 60, this)">
+            Comprar
+          </button>
+
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+
+    </div>
+
+
+  </section>
+
+  <section class="produtos" id="babydoll">
+    <h2>Baby doll linha Luxo</h2>
+    <div class="grid">
+
+      <div class="card">
+        <img src="BabyDoll-vermelho.png">
+        <div class="card-body">
+          <h3>Baby Doll Vermelho Intenso</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <p class="preco">R$ 100,00</p>
+
+          <button onclick="addToCart('Baby Doll Vermelho Intenso', 100, this)">
+            Comprar
+          </button>
+
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+      </div>
+
+      <div class="card">
+
+        <div class="carrossel">
+          <div class="slides">
+
+            <img src="BabyDoll-Marrom.png" class="slide">
+
+            <video class="slide" controls poster="BabyDoll-Marrom.png">
+              <source src="BabyDolldeRendaMarrom.mp4" type="video/mp4">
+            </video>
+
+          </div>
+          <div class="dots">
+            <span class="dot active"></span>
+            <span class="dot"></span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <h3>Baby Doll de Renda Marrom</h3>
+
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+
+          <p class="preco">R$ 100,00</p>
+
+          <button onclick="addToCart('Baby Doll de Renda Marrom', 100, this)">
+            Comprar
+          </button>
+
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
+
       </div>
     </div>
 
     <div class="card">
-      <img src="rendado-vermelho.png">
-      <div class="card-body">
-        <h3>Conjunto Rendado Vermelho</h3>
-        <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-        <p class="preco">R$ 55,00</p>
-
-        <button onclick="addToCart('Conjunto Rendado Vermelho', 55, this)">
-          Comprar
-        </button>
-
-        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-      </div>
-    </div>
-
-    <div class="card">
-      <img src="conjunto-coração.png">
-      <div class="card-body">
-        <h3>Conjunto Coração</h3>
-        <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-        <p class="preco">R$ 60,00</p>
-
-        <button onclick="addToCart('Conjunto Coração', 60, this)">
-          Comprar
-        </button>
-
-        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-      </div>
-    </div>
-
-    
-  </div>
-
-  
-</section>
-
-<section class="produtos" id="babydoll">
-  <h2>Baby doll linha Luxo</h2>
-  <div class="grid">
-
-   <div class="card">
-      <img src="BabyDoll-vermelho.png">
-      <div class="card-body">
-        <h3>Baby Doll Vermelho Intenso</h3>
-        <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-        <p class="preco">R$ 100,00</p>
-
-        <button onclick="addToCart('Baby Doll Vermelho Intenso', 100, this)">
-          Comprar
-        </button>
-
-        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-      </div>
-    </div>
-
-  <div class="card">
-
-  <div class="carrossel">
-    <div class="slides">
-      
-      <img src="BabyDoll-Marrom.png" class="slide">
-
-      <video class="slide" controls poster="BabyDoll-Marrom.png">
-        <source src="BabyDolldeRendaMarrom.mp4" type="video/mp4">
-      </video>
-
-    </div>
-    <!-- 👇 BOLINHAS -->
-  <div class="dots">
-    <span class="dot active"></span>
-    <span class="dot"></span>
-  </div>
-</div>
-
-  <div class="card-body">
-    <h3>Baby Doll de Renda Marrom</h3>
-
-    <select class="tamanho">
-      <option value="">Tamanho</option>
-      <option value="PP">PP</option>
-      <option value="P">P</option>
-      <option value="M">M</option>
-      <option value="G">G</option>
-      <option value="GG">GG</option>
-    </select>
-
-    <p class="preco">R$ 100,00</p>
-
-    <button onclick="addToCart('Baby Doll de Renda Marrom', 100, this)">
-      Comprar
-    </button>
-
-    <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
-  </div>
-
-</div>
-    </div>
-
-  <div class="card">
       <img src="BabyDoll-Perola.png">
       <div class="card-body">
         <h3>Baby Doll Pérola</h3>
         <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
+          <option value="">Tamanho</option>
+          <option value="PP">PP</option>
+          <option value="P">P</option>
+          <option value="M">M</option>
+          <option value="G">G</option>
+          <option value="GG">GG</option>
+        </select>
         <p class="preco">R$ 100,00</p>
 
         <button onclick="addToCart('Baby Doll Pérola', 100, this)">
@@ -758,357 +761,355 @@
       </div>
     </div>
 
-    </section>
+  </section>
 
-<section class="produtos" id="plus size">
-  <h2>Plus size</h2>
-  <div class="grid">
+  <section class="produtos" id="plus size">
+    <h2>Plus size</h2>
+    <div class="grid">
 
-    <div class="card">
-      <img src="Pijama Short.png">
-      <div class="card-body">
-        <h3>Pijama Short Plus Hello Kitty</h3>
-        <select class="tamanho">
-  <option value="">Tamanho</option>
-  <option value="PP">PP</option>
-  <option value="P">P</option>
-  <option value="M">M</option>
-  <option value="G">G</option>
-  <option value="GG">GG</option>
-</select>
-        <p class="preco">R$ 70,00</p>
+      <div class="card">
+        <img src="Pijama Short.png">
+        <div class="card-body">
+          <h3>Pijama Short Plus Hello Kitty</h3>
+          <select class="tamanho">
+            <option value="">Tamanho</option>
+            <option value="PP">PP</option>
+            <option value="P">P</option>
+            <option value="M">M</option>
+            <option value="G">G</option>
+            <option value="GG">GG</option>
+          </select>
+          <p class="preco">R$ 70,00</p>
 
-        <button onclick="addToCart('Pijama Short Plus Hello Kitty', 70, this)">
-          Comprar
-        </button>
+          <button onclick="addToCart('Pijama Short Plus Hello Kitty', 70, this)">
+            Comprar
+          </button>
 
-        <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+          <p class="urgencia">⚠️ Últimas unidades disponíveis</p>
+        </div>
       </div>
+
+    </div>
+  </section>
+
+  <div class="carrinho" id="carrinho">
+    <h2>Seu Carrinho</h2>
+
+    <div id="lista"></div>
+    <p class="total" id="total"></p>
+    <p class="timer" id="timer"></p>
+
+    <div class="frete-box" id="frete-section">
+      <h3>Frete</h3>
+
+      <input id="cep" placeholder="Digite seu CEP" maxlength="9">
+
+      <button class="calcular-frete-btn" onclick="buscarEndereco()">
+        Buscar Endereço
+      </button>
+
+      <div id="endereco" style="margin-top:10px;"></div>
+
+      <div class="pagamento-box">
+        <h3>Forma de Pagamento</h3>
+
+        <select id="pagamento" onchange="mostrarParcelas()">
+          <option value="">Selecione</option>
+          <option value="Pix">Pix</option>
+          <option value="Débito">Cartão de Débito</option>
+          <option value="Crédito">Cartão de Crédito</option>
+        </select>
+
+        <select id="parcelas" style="display:none; margin-top:10px;">
+          <option value="1x">1x com juros</option>
+          <option value="2x">2x com juros</option>
+          <option value="3x">3x com juros</option>
+          <option value="4x">4x com juros</option>
+        </select>
+      </div>
+
     </div>
 
-  </div>
-</section>
-
-<!-- CARRINHO -->
-<div class="carrinho" id="carrinho">
-  <h2>Seu Carrinho</h2>
-
-  <div id="lista"></div>
-  <p class="total" id="total"></p>
-  <p class="timer" id="timer"></p>
-
-  <div class="frete-box" id="frete-section">
-    <h3>Frete</h3>
-
-    <input id="cep" placeholder="Digite seu CEP" maxlength="9">
-
-<button class="calcular-frete-btn" onclick="buscarEndereco()">
-  Buscar Endereço
-</button>
-
-<div id="endereco" style="margin-top:10px;"></div>
-
-    <div class="pagamento-box">
-  <h3>Forma de Pagamento</h3>
-
-  <select id="pagamento" onchange="mostrarParcelas()">
-    <option value="">Selecione</option>
-    <option value="Pix">Pix</option>
-    <option value="Débito">Cartão de Débito</option>
-    <option value="Crédito">Cartão de Crédito</option>
-  </select>
-
-  <select id="parcelas" style="display:none; margin-top:10px;">
-    <option value="1x">1x com juros</option>
-    <option value="2x">2x com juros</option>
-    <option value="3x">3x com juros</option>
-    <option value="4x">4x com juros</option>
-  </select>
-</div>
-    
+    <button class="btn-whats" onclick="finalizarCompra()">
+      Finalizar Compra via WhatsApp
+    </button>
   </div>
 
-  <button class="btn-whats" onclick="finalizarCompra()">
-    Finalizar Compra via WhatsApp
-  </button>
-</div>
-
-<a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
-  <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
-</a>
+  <a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
+    <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
+  </a>
   <a class="carrinho-fixo" onclick="irParaCarrinho()">
-  🛒
-</a>
+    🛒
+  </a>
 
-<footer>
-  <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
-</footer>
+  <footer>
+    <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
+  </footer>
 
-<script>
-let cart = [];
-let valorFrete = 0;
-let tipoFrete = "";
-let tempo = 600;
-let timerInterval;
+  <script>
+    let cart = [];
+    let valorFrete = 0;
+    let tipoFrete = "";
+    let tempo = 600;
+    let timerInterval;
 
-  function mostrarParcelas() {
-  let pagamento = document.getElementById("pagamento").value;
-  let parcelas = document.getElementById("parcelas");
+    function mostrarParcelas() {
+      let pagamento = document.getElementById("pagamento").value;
+      let parcelas = document.getElementById("parcelas");
 
-  if (pagamento === "Crédito") {
-    parcelas.style.display = "block";
-  } else {
-    parcelas.style.display = "none";
-  }
-}
+      if (pagamento === "Crédito") {
+        parcelas.style.display = "block";
+      } else {
+        parcelas.style.display = "none";
+      }
+    }
 
-function toggleMenu() {
-  let menu = document.getElementById("menu");
-  menu.style.right = menu.style.right === "20px" ? "-220px" : "20px";
-}
+    function toggleMenu() {
+      let menu = document.getElementById("menu");
+      menu.style.right = menu.style.right === "20px" ? "-220px" : "20px";
+    }
 
-function iniciarTimer() {
-  clearInterval(timerInterval);
-  tempo = 600;
-
-  timerInterval = setInterval(() => {
-    let m = Math.floor(tempo / 60);
-    let s = tempo % 60;
-
-    document.getElementById("timer").innerText =
-      `⏳ Reserva expira em ${m}:${s < 10 ? '0' : ''}${s}`;
-
-    tempo--;
-
-    if (tempo < 0) {
+    function iniciarTimer() {
       clearInterval(timerInterval);
-      cart = [];
-      atualizar();
-      document.getElementById("timer").innerText = "Tempo expirado ⛔";
+      tempo = 600;
+
+      timerInterval = setInterval(() => {
+        let m = Math.floor(tempo / 60);
+        let s = tempo % 60;
+
+        document.getElementById("timer").innerText =
+          `⏳ Reserva expira em ${m}:${s < 10 ? '0' : ''}${s}`;
+
+        tempo--;
+
+        if (tempo < 0) {
+          clearInterval(timerInterval);
+          cart = [];
+          atualizar();
+          document.getElementById("timer").innerText = "Tempo expirado ⛔";
+        }
+      }, 1000);
     }
-  }, 1000);
-}
 
-function addToCart(nome, preco, botao, isKit = false) {
-  let card = botao.parentElement;
-  let select = card.querySelector(".tamanho");
+    function addToCart(nome, preco, botao, isKit = false) {
+      let card = botao.parentElement;
+      let select = card.querySelector(".tamanho");
 
-  let tamanho = select ? select.value : "";
+      let tamanho = select ? select.value : "";
 
-  if (select && tamanho === "") {
-    alert("Selecione um tamanho!");
-    return;
-  }
-
-  let item = cart.find(i => i.nome === nome && i.tamanho === tamanho);
-
-  if (item) item.qtd++;
-  else cart.push({ nome, preco, qtd: 1, isKit, tamanho });
-
-  botao.innerText = "Adicionado ✓";
-  botao.style.background = "#25D366";
-
-  setTimeout(() => {
-    botao.innerText = "Comprar";
-    botao.style.background = "#E9B44C";
-  }, 1200);
-
-  iniciarTimer();
-  atualizar();
-}
-
-function atualizar() {
-  let lista = document.getElementById("lista");
-  lista.innerHTML = "";
-  let total = 0;
-let totalQtdKit = 0;
-
-// soma normal
-cart.forEach((item, index) => {
-  lista.innerHTML += `
-    <div class="item">
-      ${item.nome} ${item.tamanho ? "(" + item.tamanho + ")" : ""} (${item.qtd}) - R$ ${item.preco * item.qtd}
-      <button onclick="removerItem(${index})">X</button>
-    </div>
-  `;
-
-  total += item.preco * item.qtd;
-
-  // só conta itens do KIT
-  if (item.preco === 24) {
-    totalQtdKit += item.qtd;
-  }
-});
-
-// aplica desconto do kit
-let kits = Math.floor(totalQtdKit / 3);
-let desconto = kits * 12;
-
-total -= desconto;
-
-// mostrar info da promoção
-if (kits > 0) {
-  lista.innerHTML += `
-    <div class="item">
-      🎁 Promoção aplicada (${kits}x Kit 3 por 60) - -R$ ${desconto}
-    </div>
-  `;
-}
-
-  document.getElementById("total").innerText = "Total: R$ " + total;
-}
-
-function removerItem(index) {
-  cart.splice(index, 1);
-  atualizar();
-}
-
-function calcularFrete() {
-  let cep = document.getElementById("cep").value.replace("-", "");
-
-  if (cep.length !== 8) {
-    alert("Digite um CEP válido");
-    return;
-  }
-
-  let prefixo = cep.substring(0, 2);
-
-  if (prefixo == "22") {
-    valorFrete = 12;
-    tipoFrete = "Entrega local RJ";
-  } else if (prefixo >= "20" && prefixo <= "28") {
-    valorFrete = 18;
-    tipoFrete = "Sudeste";
-  } else {
-    valorFrete = 35;
-    tipoFrete = "Brasil";
-  }
-
-  document.getElementById("frete").innerText =
-    `Frete: R$ ${valorFrete} (${tipoFrete})`;
-}
-
-function finalizarCompra() {
-  if (cart.length === 0) {
-    alert("Seu carrinho está vazio!");
-    return;
-  }
-
-  let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
-  let total = 0;
-let totalQtdKit = 0;
-
-// monta lista e soma
-cart.forEach(item => {
-  mensagem += `- ${item.nome} ${item.tamanho ? "(" + item.tamanho + ")" : ""} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
-  
-  total += item.preco * item.qtd;
-
-  // contar itens do kit (preço 24)
-  if (item.preco === 24) {
-    totalQtdKit += item.qtd;
-  }
-});
-
-// calcular desconto
-let kits = Math.floor(totalQtdKit / 3);
-let desconto = kits * 12;
-
-if (kits > 0) {
-  mensagem += `%0A🎁 Promoção aplicada (${kits}x Kit 3 por 60) - -R$ ${desconto}%0A`;
-}
-
-// aplicar desconto no total
-total -= desconto;
-
-  if (valorFrete > 0) {
-    mensagem += `Frete: R$ ${valorFrete}%0A`;
-    total += valorFrete;
-  }
-
- let pagamento = document.getElementById("pagamento").value;
-let parcelas = document.getElementById("parcelas").value;
-
-if (pagamento) {
-  mensagem += `%0AForma de pagamento: ${pagamento}`;
-
-  if (pagamento === "Crédito") {
-    mensagem += ` (${parcelas})`;
-  }
-
-  mensagem += `%0A`;
-}
-
-  mensagem += `%0ATotal final: R$ ${total}%0A`;
-
-if (window.enderecoCliente) {
-  mensagem += `%0A📍 Endereço:%0A`;
-  mensagem += `${window.enderecoCliente.logradouro}, ${window.enderecoCliente.bairro}, ${window.enderecoCliente.localidade} - ${window.enderecoCliente.uf}%0A`;
-}
-
-  
-
-  window.open(`https://wa.me/5521975975595?text=${mensagem}`, "_blank");
-}
-  /* 👇 COLE AQUI EMBAIXO */
-const carrosseis = document.querySelectorAll(".carrossel");
-
-carrosseis.forEach(carrossel => {
-  const slides = carrossel.querySelector(".slides");
-  const dots = carrossel.querySelectorAll(".dot");
-
-  slides.addEventListener("scroll", () => {
-    const index = Math.round(slides.scrollLeft / slides.clientWidth);
-
-    dots.forEach(dot => dot.classList.remove("active"));
-    if (dots[index]) {
-      dots[index].classList.add("active");
-    }
-  });
-});
-  function irParaCarrinho() {
-  document.getElementById("carrinho").scrollIntoView({
-    behavior: "smooth",
-    block: "start"
-  });
-}
-  function buscarEndereco() {
-  let cep = document.getElementById("cep").value.replace(/\D/g, "");
-
-  if (cep.length !== 8) {
-    alert("Digite um CEP válido");
-    return;
-  }
-
-  fetch(`https://viacep.com.br/ws/${cep}/json/`)
-    .then(res => res.json())
-    .then(data => {
-      if (data.erro) {
-        alert("CEP não encontrado");
+      if (select && tamanho === "") {
+        alert("Selecione um tamanho!");
         return;
       }
 
-      document.getElementById("endereco").innerHTML = `
-        📍 <b>Endereço encontrado:</b><br>
-        ${data.logradouro || ""}<br>
-        ${data.bairro || ""}<br>
-        ${data.localidade} - ${data.uf}<br>
-        ${cep}
-      `;
+      let item = cart.find(i => i.nome === nome && i.tamanho === tamanho);
 
-      // salva para o WhatsApp
-      window.enderecoCliente = data;
+      if (item) item.qtd++;
+      else cart.push({ nome, preco, qtd: 1, isKit, tamanho });
+
+      botao.innerText = "Adicionado ✓";
+      botao.style.background = "#25D366";
+
+      setTimeout(() => {
+        botao.innerText = "Comprar";
+        botao.style.background = "#E9B44C";
+      }, 1200);
+
+      iniciarTimer();
+      atualizar();
+    }
+
+    function atualizar() {
+      let lista = document.getElementById("lista");
+      lista.innerHTML = "";
+      let total = 0;
+      let totalQtdKit = 0;
+
+      // soma normal
+      cart.forEach((item, index) => {
+        lista.innerHTML += `
+          <div class="item">
+            ${item.nome} ${item.tamanho ? "(" + item.tamanho + ")" : ""} (${item.qtd}) - R$ ${item.preco * item.qtd}
+            <button onclick="removerItem(${index})">X</button>
+          </div>`;
+        total += item.preco * item.qtd;
+
+        // só conta itens do KIT
+        if (item.preco === 24) {
+          totalQtdKit += item.qtd;
+        }
+      });
+
+      // aplica desconto do kit
+      let kits = Math.floor(totalQtdKit / 3);
+      let desconto = kits * 12;
+
+      total -= desconto;
+
+      // mostrar info da promoção
+      if (kits > 0) {
+        lista.innerHTML += `
+          <div class="item">
+            🎁 Promoção aplicada (${kits}x Kit 3 por 60) - -R$ ${desconto}
+          </div>`;
+      }
+
+      document.getElementById("total").innerText = "Total: R$ " + total;
+    }
+
+    function removerItem(index) {
+      cart.splice(index, 1);
+      atualizar();
+    }
+
+    function calcularFrete() {
+      let cep = document.getElementById("cep").value.replace("-", "");
+
+      if (cep.length !== 8) {
+        alert("Digite um CEP válido");
+        return;
+      }
+
+      let prefixo = cep.substring(0, 2);
+
+      if (prefixo == "22") {
+        valorFrete = 12;
+        tipoFrete = "Entrega local RJ";
+      } else if (prefixo >= "20" && prefixo <= "28") {
+        valorFrete = 18;
+        tipoFrete = "Sudeste";
+      } else {
+        valorFrete = 35;
+        tipoFrete = "Brasil";
+      }
+
+      document.getElementById("frete").innerText =
+        `Frete: R$ ${valorFrete} (${tipoFrete})`;
+    }
+
+    function finalizarCompra() {
+      if (cart.length === 0) {
+        alert("Seu carrinho está vazio!");
+        return;
+      }
+
+      let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
+      let total = 0;
+      let totalQtdKit = 0;
+
+      // monta lista e soma
+      cart.forEach(item => {
+        mensagem += `- ${item.nome} ${item.tamanho ? "(" + item.tamanho + ")" : ""} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
+
+        total += item.preco * item.qtd;
+
+        // contar itens do kit (preço 24)
+        if (item.preco === 24) {
+          totalQtdKit += item.qtd;
+        }
+      });
+
+      // calcular desconto
+      let kits = Math.floor(totalQtdKit / 3);
+      let desconto = kits * 12;
+
+      if (kits > 0) {
+        mensagem += `%0A🎁 Promoção aplicada (${kits}x Kit 3 por 60) - -R$ ${desconto}%0A`;
+      }
+
+      // aplicar desconto no total
+      total -= desconto;
+
+      mensagem += `%0ATotal produtos: R$ ${total}%0A`;
+
+      if (valorFrete > 0) {
+        mensagem += `Frete: R$ ${valorFrete}%0A`;
+        total += valorFrete;
+      }
+
+      let pagamento = document.getElementById("pagamento").value;
+      let parcelas = document.getElementById("parcelas").value;
+
+      if (pagamento) {
+        mensagem += `%0AForma de pagamento: ${pagamento}`;
+
+        if (pagamento === "Crédito") {
+          mensagem += ` (${parcelas})`;
+        }
+
+        mensagem += "%0A";
+      }
+
+      mensagem += `%0ATotal final: R$ ${total}`;
+
+      if (window.enderecoCliente) {
+        mensagem += "%0A📍 Endereço:%0A";
+        mensagem += `${window.enderecoCliente.logradouro}, ${window.enderecoCliente.bairro}, ${window.enderecoCliente.localidade} - ${window.enderecoCliente.uf}%0A`;
+      }
+
+      window.open(`https://wa.me/5521975975595?text=${mensagem}`, "_blank");
+    }
+
+    /* 👇 CONTROLE DE CARROSSEL */
+    const carrosseis = document.querySelectorAll(".carrossel");
+
+    carrosseis.forEach(carrossel => {
+      const slides = carrossel.querySelector(".slides");
+      const dots = carrossel.querySelectorAll(".dot");
+
+      slides.addEventListener("scroll", () => {
+        const index = Math.round(slides.scrollLeft / slides.clientWidth);
+
+        dots.forEach(dot => dot.classList.remove("active"));
+        if (dots[index]) {
+          dots[index].classList.add("active");
+        }
+      });
     });
-}
 
-</script>
-<footer class="rodape">
-  <p>
-    © 2026 MDR Sites Personalizados — 
-    <a href="https://www.instagram.com/mdr_sites?igsh=czBjbTB3MjB2ZWVu&utm_source=qr" target="_blank">
-      💻 Desenvolvido por Matheus Damica • Solicite seu site
-    </a>
-  </p>
-</footer>
+    function irParaCarrinho() {
+      document.getElementById("carrinho").scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+    }
+
+    function buscarEndereco() {
+      let cep = document.getElementById("cep").value.replace(/\D/g, "");
+
+      if (cep.length !== 8) {
+        alert("Digite um CEP válido");
+        return;
+      }
+
+      fetch(`https://viacep.com.br/ws/${cep}/json/`)
+        .then(res => res.json())
+        .then(data => {
+          if (data.erro) {
+            alert("CEP não encontrado");
+            return;
+          }
+
+          document.getElementById("endereco").innerHTML = `
+            📍 <b>Endereço encontrado:</b><br>
+            ${data.logradouro || ""}<br>
+            ${data.bairro || ""}<br>
+            ${data.localidade} - ${data.uf}<br>
+            ${cep}`;
+          // salva para o WhatsApp
+          window.enderecoCliente = data;
+        });
+    }
+  </script>
+
+  <footer class="rodape">
+    <p>
+      © 2026 MDR Sites Personalizados —
+      <a href="https://www.instagram.com/mdr_sites?igsh=czBjbTB3MjB2ZWVu&utm_source=qr" target="_blank">
+        💻 Desenvolvido por Matheus Damica • Solicite seu site
+      </a>
+    </p>
+  </footer>
 </body>
+
 </html>
