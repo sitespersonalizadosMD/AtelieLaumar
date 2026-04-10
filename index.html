@@ -965,11 +965,30 @@ function finalizarCompra() {
 
   let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
   let total = 0;
+let totalQtdKit = 0;
 
-  cart.forEach(item => {
-    mensagem += `- ${item.nome} ${item.tamanho ? "(" + item.tamanho + ")" : ""} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
-    total += item.preco * item.qtd;
-  });
+// monta lista e soma
+cart.forEach(item => {
+  mensagem += `- ${item.nome} ${item.tamanho ? "(" + item.tamanho + ")" : ""} (Qtd: ${item.qtd}) | R$ ${item.preco * item.qtd}%0A`;
+  
+  total += item.preco * item.qtd;
+
+  // contar itens do kit (preço 24)
+  if (item.preco === 24) {
+    totalQtdKit += item.qtd;
+  }
+});
+
+// calcular desconto
+let kits = Math.floor(totalQtdKit / 3);
+let desconto = kits * 12;
+
+if (kits > 0) {
+  mensagem += `%0A🎁 Promoção aplicada (${kits}x Kit 3 por 60) - -R$ ${desconto}%0A`;
+}
+
+// aplicar desconto no total
+total -= desconto;
 
   mensagem += `%0ATotal produtos: R$ ${total}%0A`;
 
