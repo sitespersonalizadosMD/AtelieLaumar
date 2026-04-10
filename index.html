@@ -344,6 +344,34 @@
     .carrinho-fixo {
   cursor: pointer;
 }
+    .carrossel {
+  position: relative;
+  overflow: hidden;
+}
+
+.dots {
+  position: absolute;
+  bottom: 10px;   /* distância da base da imagem */
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 10;
+  background: rgba(0, 0, 0, 0.3); /* opcional: fundo leve */
+  padding: 4px 8px;
+  border-radius: 20px;
+}
+    .dot {
+  height: 8px;
+  width: 8px;
+  background-color: #ccc;
+  border-radius: 50%;
+  transition: 0.3s;
+}
+
+.dot.active {
+  background-color: #E9B44C;
+}
   </style>
 </head>
 
