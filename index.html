@@ -326,6 +326,21 @@
 .whatsapp-btn {
   bottom: 20px;
 }
+    .carrinho-fixo {
+  position: fixed;
+  bottom: 90px;
+  right: 20px;
+  background: #E9B44C;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 26px;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+}
   </style>
 </head>
 
@@ -808,6 +823,9 @@
 <a class="whatsapp-fixo" href="https://wa.me/5521975975595" target="_blank">
   <img src="https://cdn-icons-png.flaticon.com/512/733/733585.png">
 </a>
+  <a class="carrinho-fixo" onclick="irParaCarrinho()">
+  🛒
+</a>
 
 <footer>
   <p>Envio para todo Brasil 🇧🇷 | Compra segura 🔒</p>
@@ -962,6 +980,12 @@ function finalizarCompra() {
     alert("Seu carrinho está vazio!");
     return;
   }
+  function irParaCarrinho() {
+  document.getElementById("carrinho").scrollIntoView({
+    behavior: "smooth",
+    block: "start"
+  });
+}
 
   let mensagem = "Olá, quero finalizar meu pedido:%0A%0A";
   let total = 0;
