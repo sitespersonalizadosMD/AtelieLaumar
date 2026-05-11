@@ -1609,8 +1609,6 @@
 
   <script>
     let cart = [];
-    let valorFrete = 0;
-    let tipoFrete = "";
     let tempo = 600;
     let timerInterval;
 
@@ -1756,10 +1754,6 @@
       // aplicar desconto no total
       total -= desconto;
 
-
-      if (valorFrete > 0) {
-        mensagem += `Frete: R$ ${valorFrete}%0A`;
-        total += valorFrete;
       }
 
       let pagamento = document.getElementById("pagamento").value;
