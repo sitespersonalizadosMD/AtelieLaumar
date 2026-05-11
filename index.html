@@ -1570,6 +1570,7 @@
       </button>
 
       <div id="endereco" style="margin-top:10px;"></div>
+      <div id="frete" style="margin-top:10px;"></div>
 
       <div class="pagamento-box">
         <h3>Forma de Pagamento</h3>
@@ -1776,7 +1777,7 @@
         mensagem += `${window.enderecoCliente.logradouro}, ${window.enderecoCliente.bairro}, ${window.enderecoCliente.localidade} - ${window.enderecoCliente.uf}%0A`;
       }
 
-      window.open(`https://wa.me/5521975975595?text=${mensagem}`, "_blank");
+      window.location.href = `https://wa.me/5521975975595?text=${mensagem}`;
     }
 
     /* 👇 CONTROLE DE CARROSSEL */
