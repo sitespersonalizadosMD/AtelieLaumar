@@ -1723,31 +1723,6 @@
       atualizar();
     }
 
-    function calcularFrete() {
-      let cep = document.getElementById("cep").value.replace("-", "");
-
-      if (cep.length !== 8) {
-        alert("Digite um CEP válido");
-        return;
-      }
-
-      let prefixo = cep.substring(0, 2);
-
-      if (prefixo == "22") {
-        valorFrete = 12;
-        tipoFrete = "Entrega local RJ";
-      } else if (prefixo >= "20" && prefixo <= "28") {
-        valorFrete = 18;
-        tipoFrete = "Sudeste";
-      } else {
-        valorFrete = 35;
-        tipoFrete = "Brasil";
-      }
-
-      document.getElementById("frete").innerText =
-        `Frete: R$ ${valorFrete} (${tipoFrete})`;
-    }
-
     function finalizarCompra() {
       if (cart.length === 0) {
         alert("Seu carrinho está vazio!");
