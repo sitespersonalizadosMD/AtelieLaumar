@@ -359,6 +359,35 @@
     .carrinho-fixo {
       cursor: pointer;
     }
+
+    .esgotado {
+  opacity: 0.6;
+  position: relative;
+}
+
+.esgotado::after {
+  content: "ESGOTADO";
+  position: absolute;
+  top: 15px;
+  right: -35px;
+  background: #ff0000;
+  color: white;
+  padding: 6px 40px;
+  transform: rotate(45deg);
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.esgotado button {
+  background: #777 !important;
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.esgotado select {
+  pointer-events: none;
+  opacity: 0.7;
+}
   </style>
 </head>
 
@@ -504,7 +533,7 @@
         </div>
       </div>
 
-      <div class="card">
+      <div class="card esgotado">
         <img src="tanga-personalizavel.png">
         <div class="card-body">
           <h3>Tanga Personalizavel Ajustada</h3>
