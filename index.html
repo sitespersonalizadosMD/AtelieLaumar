@@ -393,6 +393,18 @@
   object-fit: contain !important;
   background: #2b1409;
 }
+
+    .preco-antigo{
+    text-decoration: line-through;
+    color: #999;
+    font-size: 16px;
+}
+
+.preco-promocao{
+    color: #25D366;
+    font-size: 24px;
+    font-weight: bold;
+}
   </style>
 </head>
 
@@ -1046,7 +1058,10 @@
           <option value="G">G</option>
           <option value="GG">GG</option>
         </select>
-        <p class="preco">R$ 99,99</p>
+        <p class="preco">
+    <span class="preco-antigo">R$ 119,99</span><br>
+    <span class="preco-promocao">R$ 99,99</span>
+</p>
 
         <button onclick="addToCart('Baby Doll Rendado Fios de Ouro', 99.99, this)">
           Comprar
